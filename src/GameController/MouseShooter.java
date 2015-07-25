@@ -3,20 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameEngineSystem;
+package GameController;
 
 /**
  *
  * @author xcreed
  */
-public class Player {
-    
-    public int score; //player doesn't have lifes, its only score
-    
-    public static void shoot() {
-        
-    }
-    
+public class MouseShooter {
     
     
     
