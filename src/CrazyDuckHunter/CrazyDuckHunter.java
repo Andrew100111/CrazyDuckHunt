@@ -10,7 +10,7 @@ package CrazyDuckHunter;
  * @author Andrew
  */
 public class CrazyDuckHunter {
-
+    
     public static void main (String Args[]){
         
         
