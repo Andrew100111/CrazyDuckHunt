@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CrazyDuckHunter;
+package GameEngineSystem;
 
 /**
  *
  * @author Andrew
  */
-public class CrazyDuckHunter {
-
-    public static void main (String Args[]){
-        
-        
-        
-    }
+public class GameEngineSystem {
     
 }
