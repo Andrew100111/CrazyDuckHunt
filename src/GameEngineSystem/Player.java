@@ -5,15 +5,30 @@
  */
 package GameEngineSystem;
 
+import GameController.MouseShooter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author xcreed
  */
 public class Player {
     
-    public int score; //player doesn't have lifes, its only score
+    MouseShooter mouse = new MouseShooter();
     
-    public static void shoot() {
+    public int score = 0; //player doesn't have lifes, its only score
+    
+    public void shoot() {
+        
+        try {
+            mouse.getClick();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
         
     }
     

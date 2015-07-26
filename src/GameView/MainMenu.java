@@ -5,10 +5,14 @@
  */
 package GameView;
 
+import GameController.MouseShooter;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Label;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -17,10 +21,19 @@ import javax.swing.JFrame;
  */
 public class MainMenu {
       
+    static MouseShooter mouse = new MouseShooter();
     
     public static void main(String[] args) {
         
         windows();
+        
+        //Thread inside MouseShooter needs a try/catch
+
+        try {
+            mouse.getClick();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
          //Gets user text
         Scanner input = new Scanner(System.in); 
@@ -36,13 +49,13 @@ public class MainMenu {
     
     public static void windows() {
         
-        Button click = new Button();
+        JButton click = new JButton();
         
         click.setSize(20, 10);
         
         JFrame window = new JFrame("CDH"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        window.getContentPane().add(click, BorderLayout.CENTER); 
+        //window.getContentPane().add(click, BorderLayout.CENTER); 
         
         window.setSize(600, 400); //window size
         window.setLocationRelativeTo(null); //puts the window in the center of the screen  
