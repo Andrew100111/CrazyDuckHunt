@@ -36,7 +36,6 @@ public class MainMenu {
     
     public static void windows() {
         
-        Label empty = new Label();
         Button click = new Button();
         
         click.setSize(20, 10);
@@ -45,8 +44,8 @@ public class MainMenu {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         window.getContentPane().add(click, BorderLayout.CENTER); 
         
-        window.setSize(600, 400);
-        window.setLocationRelativeTo(null);     
+        window.setSize(600, 400); //window size
+        window.setLocationRelativeTo(null); //puts the window in the center of the screen  
         window.setResizable(false);
         
         
