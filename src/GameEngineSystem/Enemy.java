@@ -17,9 +17,9 @@ public abstract class Enemy {
 
     public int life; //hits needed to kill it
     public int points; //points the player earns
-    public int time; //Piquirrojo has only 30s on screen
-    public int speed; //every duck has different speeds
-    public float emerge; //rarity of types on screen
+    //public int time; //amount of time the duck's on the screen
+    public int speed; //speed of movement of each duck
+    public float appearance; // percentage of apprearence on the screen
     
     public Label duck = new Label();
     

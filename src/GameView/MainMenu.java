@@ -57,7 +57,7 @@ public class MainMenu {
 
         click.setSize(20, 10);
 
-        JFrame window = new JFrame("CDH"); //creates window
+        JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         //window.getContentPane().add(click, BorderLayout.CENTER); 
 
