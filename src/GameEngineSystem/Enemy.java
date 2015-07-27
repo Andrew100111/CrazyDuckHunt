@@ -5,6 +5,10 @@
  */
 package GameEngineSystem;
 
+import java.awt.Label;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author xcreed
@@ -17,15 +21,44 @@ public abstract class Enemy {
     public int speed; //every duck has different speeds
     public float emerge; //rarity of types on screen
     
-    public abstract void hurtPlayer(); //only the Piquirrojo has this method, 
+    public Label duck = new Label();
+    
+    //public abstract void hurtPlayer(); //only the Piquirrojo has this method, 
     //so it will be implemented in its class
     
-    public static void fly() { //every duck has the ability to fly
+    
+    public static void enemy() {
+        
+        //fly();
+    }
+    
+    public void fly() { //every duck has the ability to fly
+        
+        int x = 0;
+        int y;
+        
+        while (true && x <= 600) {
+            
+            x++;
+            
+            System.out.println("X =" + x);
+            
+            
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        System.out.println("reached limit");
+        
         
     } 
     
     public static void die() {
-        
+        //pato se muere
     }
     
     
