@@ -53,13 +53,9 @@ public class MainMenu {
 
     public static void windows() {
 
-        JButton click = new JButton();
-
-        click.setSize(20, 10);
-
         JFrame window = new JFrame("CDH"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        //window.getContentPane().add(click, BorderLayout.CENTER); 
+        window.getContentPane().add(duck.image, BorderLayout.CENTER); 
 
         //Check the position of the click on the window
 //        window.addMouseListener(new MouseAdapter() {
