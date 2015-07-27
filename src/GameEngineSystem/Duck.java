@@ -5,6 +5,7 @@
  */
 package GameEngineSystem;
 
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,5 +33,4 @@ public class Duck extends Enemy {
             return null;
         }
     }
-    
 }
