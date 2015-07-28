@@ -32,7 +32,7 @@ public class MainMenu {
     public static void main(String[] args) {
 
         windows();
-        duck.fly();
+        //duck.fly();
         //Thread inside MouseShooter needs a try/catch
 
 //        try {
