@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GameView;
 
 import GameController.MouseShooter;
@@ -19,20 +14,17 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-/**
- *
- * @author xcreed
- */
+
 public class MainMenu {
 
     static MouseShooter mouse = new MouseShooter();
-    static Duck duck = new Duck();
+    //static Duck duck = new Duck();
     
 
     public static void main(String[] args) {
 
         windows();
-        duck.fly();
+        //duck.fly();
         //Thread inside MouseShooter needs a try/catch
 
 //        try {
@@ -53,9 +45,13 @@ public class MainMenu {
 
     public static void windows() {
 
-        JFrame window = new JFrame("CDH"); //creates window
+        JButton click = new JButton();
+
+        click.setSize(20, 10);
+
+        JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        window.getContentPane().add(duck.image, BorderLayout.CENTER); 
+        //window.getContentPane().add(click, BorderLayout.CENTER); 
 
         //Check the position of the click on the window
 //        window.addMouseListener(new MouseAdapter() {
