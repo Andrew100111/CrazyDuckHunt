@@ -6,6 +6,7 @@ import GameEngineSystem.Enemy;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Label;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Scanner;
@@ -17,14 +18,16 @@ import javax.swing.JFrame;
 
 public class MainMenu {
 
-    static MouseShooter mouse = new MouseShooter();
-    //static Duck duck = new Duck();
-    
+    static MouseShooter mouse = new MouseShooter(); 
+    static Duck duck = new Duck(); //Creates instance of a duck
+    public static int MouseX;
+    public static int MouseY;
+
 
     public static void main(String[] args) {
 
         windows();
-        //duck.fly();
+        
         //Thread inside MouseShooter needs a try/catch
 
 //        try {
@@ -45,20 +48,20 @@ public class MainMenu {
 
     public static void windows() {
 
-        JButton click = new JButton();
-
-        click.setSize(20, 10);
-
         JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        //window.getContentPane().add(click, BorderLayout.CENTER); 
+        window.getContentPane().add(duck.block, BorderLayout.CENTER); 
 
         //Check the position of the click on the window
-//        window.addMouseListener(new MouseAdapter() {
-//            public void mouseClicked(MouseEvent e) {
-//                System.out.println(e.getPoint());
-//            }
-//        });  
+        window.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                MouseX = e.getPoint().x;//X axis of the mouse
+                MouseY = e.getPoint().y;//Y axis of the mouse
+                
+                System.out.println("X:" + MouseX + "Y:" + MouseY);
+
+            }
+        });  
         
     
         
