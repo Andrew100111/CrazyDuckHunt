@@ -2,8 +2,13 @@
 package GameEngineSystem;
 
 import java.awt.Label;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 
 
 public abstract class Enemy {
@@ -15,7 +20,7 @@ public abstract class Enemy {
     public int points; //points the player earns
     public int speed; //speed of movement of each duck
     public float appearance; // percentage of apprearence on the screen
-    
+    public JLabel block;
     //public Label duck = new Label();
 
     public Enemy(int life, int points, int speed, float appearance) {
@@ -23,6 +28,10 @@ public abstract class Enemy {
         this.points = points;
         this.speed = speed;
         this.appearance = appearance;
+    }
+    
+    public Enemy() {
+        
     }
     
 
@@ -58,6 +67,20 @@ public abstract class Enemy {
         this.appearance = appearance;
     }
     
+    //Retrieves Image
+    public BufferedImage getImage(String path) {
+        
+        File file = new File(path);
+        try {
+            BufferedImage image = ImageIO.read(file);
+            return image;
+        } catch (IOException ex) {
+           
+            Logger.getLogger(Duck.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
+    }
     
     //#######################################################################//
    /*métodos necesarios acá
@@ -68,10 +91,7 @@ public abstract class Enemy {
     
     */
     
-    public static void enemy() {
-        
-        //fly();
-    }
+    
     
     public void fly() { //every duck has the ability to fly
         
