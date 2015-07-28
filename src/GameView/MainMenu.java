@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GameView;
 
 import GameController.MouseShooter;
@@ -19,14 +14,11 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-/**
- *
- * @author xcreed
- */
+
 public class MainMenu {
 
     static MouseShooter mouse = new MouseShooter();
-    static Duck duck = new Duck();
+    //static Duck duck = new Duck();
     
 
     public static void main(String[] args) {

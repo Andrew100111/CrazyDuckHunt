@@ -11,7 +11,10 @@ package GameEngineSystem;
  */
 public class Duck extends Enemy {
 
-      
+    public Duck(int life, int points, int speed, float appearance) {
+        super(life, points, speed, appearance);
+    }
+      //pruebas
     
     
 }
