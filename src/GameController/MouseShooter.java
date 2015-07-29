@@ -5,6 +5,7 @@
  */
 package GameController;
 
+import GameView.MainMenu;
 import java.awt.BorderLayout;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -21,9 +22,9 @@ import javax.swing.JFrame;
  */
 public class MouseShooter {
     
-        PointerInfo mouse;
-         
-        Point loc;
+    //private static int MouseX = MainMenu.getMouse().x;
+    //private static int MouseY = MainMenu.getMouse().y;
+    public static Point loc = MainMenu.getMouse();
                 
         
     //Gets the location of the pointer
@@ -58,6 +59,18 @@ public class MouseShooter {
         
         
         //}
+    }
+    
+//    public int getX() {
+//        return MouseX;
+//    }
+//    
+//    public int getY() {
+//        return MouseY;
+//    }
+    
+    public Point getP() {
+        return loc;
     }
     
 }

@@ -1,7 +1,10 @@
 
 package GameEngineSystem;
 
+import GameController.MouseShooter;
+import GameView.MainMenu;
 import java.awt.Label;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +25,7 @@ public abstract class Enemy {
     public float appearance; // percentage of apprearence on the screen
     
     public JLabel block;
+    //public Rectangle bounds = block.getBounds();
     
 
     public Enemy(int life, int points, int speed, float appearance) {
@@ -69,6 +73,8 @@ public abstract class Enemy {
     }
     
     //Retrieves Image
+    
+    //ADD RES FOLDER??
     public BufferedImage getImage(String path) {
         
         File file = new File(path);
@@ -119,8 +125,18 @@ public abstract class Enemy {
         
     } 
     
-    public static void die() {
+    public void die() {
         //pato se muere
+        
+        while (block.contains(MouseShooter.loc)) {
+////          if (bounds.contains(MainMenu.MouseX, MainMenu.MouseY)) {
+            System.out.println("OHHH SHIT");
+            block.setEnabled(false);
+            
+//        } else {
+//            System.out.println("OHHH SHIT22");
+//            block.setEnabled(true);
+        }
     }
     
 }

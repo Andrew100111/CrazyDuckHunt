@@ -20,14 +20,13 @@ public class MainMenu {
 
     static MouseShooter mouse = new MouseShooter(); 
     static Duck duck = new Duck(); //Creates instance of a duck
-    public static int MouseX;
-    public static int MouseY;
-
+    private static Point Mouse;
+    
 
     public static void main(String[] args) {
 
         windows();
-        
+        //duck.die();
         //Thread inside MouseShooter needs a try/catch
 
 //        try {
@@ -51,20 +50,18 @@ public class MainMenu {
         JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         window.getContentPane().add(duck.block, BorderLayout.CENTER); 
-
+        
+         
         //Check the position of the click on the window
         window.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                MouseX = e.getPoint().x;//X axis of the mouse
-                MouseY = e.getPoint().y;//Y axis of the mouse
+                Mouse = e.getPoint();
                 
-                System.out.println("X:" + MouseX + "Y:" + MouseY);
+                System.out.println("X:" + Mouse);
 
             }
         });  
-        
-    
-        
+                
         window.setSize(600, 400); //window size
         window.setLocationRelativeTo(null); //puts the window in the center of the screen  
         window.setResizable(false);
@@ -72,6 +69,10 @@ public class MainMenu {
         //window.pack();
         window.setVisible(true);
 
+    }
+    
+    public static Point getMouse() {
+        return Mouse;
     }
 
 }
