@@ -24,18 +24,19 @@ public class Duck extends Enemy {
 //        super(life, points, speed, appearance);
 //    }
     
+    //just trying
     public Duck(int N) {
         
         if (N == 1) {
             
             block = new JLabel(new ImageIcon(getImage("/home/xcreed/NetBeansProjects/CrazyDuckHunt/src/res/block.png")));  
-            System.out.println(block.getBounds());
-    
+            block.revalidate();
+
+            System.out.println(block.getLocation()); 
+            //location is 0,0 idk why
         
         }
         
     }    
-    
-        
-    
+            
 }

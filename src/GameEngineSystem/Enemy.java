@@ -3,6 +3,7 @@ package GameEngineSystem;
 
 import GameController.MouseShooter;
 import GameView.MainMenu;
+import java.awt.Graphics;
 import java.awt.Label;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -23,9 +24,9 @@ public abstract class Enemy {
     public int points; //points the player earns
     public int speed; //speed of movement of each duck
     public float appearance; // percentage of apprearence on the screen
-    
-    public JLabel block;
-    //public Rectangle bounds = block.getBounds();
+    private static int x = 50; //location x
+    private static int y = 50; //location y
+    public static JLabel block;
     
 
     public Enemy(int life, int points, int speed, float appearance) {
@@ -127,16 +128,9 @@ public abstract class Enemy {
     
     public void die() {
         //pato se muere
+       
         
-        while (block.getBounds().contains(MouseShooter.getP())) {
-////          if (bounds.contains(MainMenu.MouseX, MainMenu.MouseY)) {
-            System.out.println("OHHH SHIT");
-            block.setEnabled(false);
-            
-//        } else {
-//            System.out.println("OHHH SHIT22");
-//            block.setEnabled(true);
-        }
+       if (block.getLocation() == MouseShooter.getP())
+            System.out.println("hello there");
     }
-    
 }

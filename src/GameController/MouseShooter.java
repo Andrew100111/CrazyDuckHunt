@@ -28,10 +28,7 @@ public class MouseShooter {
                 
         
     //Gets the location of the pointer
-    public void getClick() {
-        
-        //Puts a 1s delay for printing the location
-        
+    public void getClick() {     
        
     }
     

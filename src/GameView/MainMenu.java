@@ -3,9 +3,11 @@ package GameView;
 import GameController.MouseShooter;
 import GameEngineSystem.Duck;
 import java.awt.BorderLayout;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Scanner;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 
 public class MainMenu {
@@ -13,12 +15,15 @@ public class MainMenu {
     static MouseShooter mouse = new MouseShooter(); 
     static Duck duck = new Duck(1); //Creates instance of a duck
     private static Point Mouse;
-    
+
 
     public static void main(String[] args) {
-
-        windows();
-        //duck.die();
+        
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                windows();
+            }
+        });
 
         //Gets user text
         Scanner input = new Scanner(System.in);
@@ -34,8 +39,7 @@ public class MainMenu {
 
         JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        window.getContentPane().add(duck.block, BorderLayout.CENTER); 
-        
+        //window.getContentPane().add(duck.rec); 
          
         //Check the position of the click on the window
         window.addMouseListener(MouseShooter.MouseAdapter());  
@@ -52,5 +56,5 @@ public class MainMenu {
     public static Point getMouse() {
         return Mouse;
     }
-
+   
 }
