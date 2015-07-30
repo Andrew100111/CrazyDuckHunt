@@ -128,7 +128,7 @@ public abstract class Enemy {
     public void die() {
         //pato se muere
         
-        while (block.contains(MouseShooter.loc)) {
+        while (block.getBounds().contains(MouseShooter.getP())) {
 ////          if (bounds.contains(MainMenu.MouseX, MainMenu.MouseY)) {
             System.out.println("OHHH SHIT");
             block.setEnabled(false);

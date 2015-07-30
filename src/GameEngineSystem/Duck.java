@@ -20,12 +20,21 @@ import javax.swing.JLabel;
  */
 public class Duck extends Enemy {
     
-    public JLabel block = new JLabel(new ImageIcon(getImage("/home/xcreed/NetBeansProjects/CrazyDuckHunt/src/res/block.png")));
-
 //    public Duck(int life, int points, int speed, float appearance) {
 //        super(life, points, speed, appearance);
 //    }
     
+    public Duck(int N) {
+        
+        if (N == 1) {
+            
+            block = new JLabel(new ImageIcon(getImage("/home/xcreed/NetBeansProjects/CrazyDuckHunt/src/res/block.png")));  
+            System.out.println(block.getBounds());
+    
+        
+        }
+        
+    }    
     
         
     

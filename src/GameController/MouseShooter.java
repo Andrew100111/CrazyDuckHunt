@@ -12,6 +12,7 @@ import java.awt.Point;
 import java.awt.PointerInfo;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,55 +23,34 @@ import javax.swing.JFrame;
  */
 public class MouseShooter {
     
-    //private static int MouseX = MainMenu.getMouse().x;
-    //private static int MouseY = MainMenu.getMouse().y;
-    public static Point loc = MainMenu.getMouse();
+
+    private static Point Mouse;
                 
         
     //Gets the location of the pointer
-    public void getClick() throws InterruptedException {
-        
-//        //Check the position of the click on the window
-//        this.addMouseListener(new MouseAdapter() {
-//            public void mouseClicked(MouseEvent e) {
-//                System.out.println(e.getPoint());
-//            }
-//        });  
-//        while (true) {
-//        
-//        mouse = MouseInfo.getPointerInfo();
-//        loc = mouse.getLocation();
-//        
-//        int x = loc.x;
-//        int y = loc.y;
-//                
-//        System.out.println(loc);
-//        
-//        if (x <= 600) {
-//            //System.out.println("raeched");
-//            //break;
-//   
-//        }
-
+    public void getClick() {
         
         //Puts a 1s delay for printing the location
         
-        Thread.sleep(1000);
-        
-        
-        //}
+       
     }
     
-//    public int getX() {
-//        return MouseX;
-//    }
-//    
-//    public int getY() {
-//        return MouseY;
-//    }
-    
-    public Point getP() {
-        return loc;
+    //Get the pointer location
+    public static Point getP() {
+        return Mouse;
     }
     
+    
+    //Adds the method to retrieve the click location on the window
+    public static MouseListener MouseAdapter() {
+        MouseAdapter mouseAdapter = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                Mouse = e.getPoint();
+                
+                System.out.println("X:" + Mouse);
+            
+            }
+        };
+        return mouseAdapter;
+    }
 }
