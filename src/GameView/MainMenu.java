@@ -19,12 +19,13 @@ public class MainMenu {
 
     public static void main(String[] args) {
         
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                windows();
-            }
-        });
-
+//        SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                windows();
+//            }
+//        });
+        windows(); 
+        
         //Gets user text
         Scanner input = new Scanner(System.in);
 
@@ -39,8 +40,8 @@ public class MainMenu {
 
         JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        //window.getContentPane().add(duck.rec); 
-         
+        window.add(duck.block);
+        
         //Check the position of the click on the window
         window.addMouseListener(MouseShooter.MouseAdapter());  
                 
