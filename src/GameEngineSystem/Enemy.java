@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 public abstract class Enemy {
     
     //si aparecen 100 patos: 
-    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
+   // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
     public int life; //hits needed to kill it
     public int points; //points the player earns

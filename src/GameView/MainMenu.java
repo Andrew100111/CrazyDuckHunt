@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 public class MainMenu {
 
     static MouseShooter mouse = new MouseShooter(); 
-    static Duck duck = new Duck(1); //Creates instance of a duck
+    static Duck duck = new Duck(1); //creates instance of a duck
     private static Point Mouse;
 
 
