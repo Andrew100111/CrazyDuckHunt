@@ -1,6 +1,8 @@
 
 package GameEngineSystem;
 
+import GameController.MouseShooter;
+import static GameView.MainMenu.windows;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 
 public abstract class Enemy {
@@ -16,17 +19,16 @@ public abstract class Enemy {
     //si aparecen 100 patos: 
    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
-    public int life; //hits needed to kill it
+    public int life = 5; //hits needed to kill it
     public int points; //points the player earns
     public int speed; //speed of movement of each duck
     public float appearance; // percentage of apprearence on the screen
-    private static int x = 50; //location x
-    private static int y = 50; //location y
+    private static int x = 0; //location x
+    private static int y = 0; //location y
     public static JLabel block;
-    private boolean t = true;
     public final int height = 30;
     public final int width = 30;
-    
+    private int score = 0;
 
     public Enemy(int life, int points, int speed, float appearance) {
         this.life = life;
@@ -37,12 +39,7 @@ public abstract class Enemy {
         
     }
     
-//    public void run () {
-//        if (t) {
-//            //fly();
-//            die();
-//        }
-//    }
+
     public Enemy() {
         //run();
         
@@ -62,48 +59,55 @@ public abstract class Enemy {
     
     public void fly() { //every duck has the ability to fly
         
-        int x = 0;
-        int y;
-        
-        if (x < 600 || x == 0) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                
+                if (x ==600) {
+                    System.out.println("Limit");
+                }
+                if (x < 600) {
             
-            x++;
+                    x++;            
+                    block.setLocation(x, y);
+
+                    block.revalidate();
+
+                    System.out.println(block.getLocation());
+                    
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    fly();
             
-            System.out.println("X =" + x);
-            
-            
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            
-            
-        }
-        
-        else if (x > 0 || x == 0) {
-            x--;
-        }     
-        
-        
-        
-        System.out.println("reached limit");
-        
+        });
+           
+//        else if (x > 0 || x == 0) {
+//            x--;
+//        }             
         
     } 
     
-    public static void die() {
-        //pato se muere
-        System.out.println("Shit");
-        System.out.println("Hi");
+    public void die() {
 
-//        if (block.getBounds().contains(MouseShooter.getP())) {
-//             System.out.println("hello there");
-//        }
-//
-//
-//        else 
-//             System.out.println("hey");
+        //System.out.println("block loc" + block.getLocation());
+        
+        if (life == 1) {
+            System.out.println("DEAD");
+            score++;
+            System.out.println(score);
+            block.setEnabled(false);
+        }
+        
+        else if (block.contains(MouseShooter.getP())) {
+            life--;
+            System.out.println(life);
+        }
+
     }
     
     public JLabel createDuck(String path) {

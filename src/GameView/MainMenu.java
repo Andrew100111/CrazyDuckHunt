@@ -7,24 +7,29 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Scanner;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 
-public class MainMenu {
+public class MainMenu extends JPanel{
 
-    static MouseShooter mouse = new MouseShooter(); 
-    static Duck duck = new Duck(1); //creates instance of a duck
+    private static MouseShooter mouse = new MouseShooter(); 
+    private static Duck duck = new Duck(1); //creates instance of a duck
     private static Point Mouse;
+    private static Graphics g;
+    
+    private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
 
 
     public static void main(String[] args) {
         
-//        SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                windows();
-//            }
-//        });
-        windows(); 
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                windows();
+                //window.repaint();
+                paintScreen(g);
+            }
+        });
         
         //Gets user text
         Scanner input = new Scanner(System.in);
@@ -38,7 +43,6 @@ public class MainMenu {
 
     public static void windows() {
 
-        JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         window.add(duck.block);
         
@@ -57,5 +61,9 @@ public class MainMenu {
     public static Point getMouse() {
         return Mouse;
     }
-   
+    
+    public static void paintScreen (Graphics g) {
+        window.paint(g);
+        window.revalidate();
+    }
 }

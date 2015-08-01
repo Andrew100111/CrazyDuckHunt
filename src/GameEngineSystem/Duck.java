@@ -16,9 +16,9 @@ public class Duck extends Enemy {
         
         if (N == 1) {
             
-            createDuck("/home/xcreed/NetBeansProjects/CrazyDuckHunt/src/res/block.png");
-            //location is 0,0 idk why
-        
+            createDuck("C:/Users/Xcreed/Documents/NetBeansProjects/CrazyDuckHunt/src/res/block.png");
+
+            fly();
         }
         
     }    
