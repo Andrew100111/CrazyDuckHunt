@@ -2,40 +2,35 @@ package GameView;
 
 import GameController.MouseShooter;
 import GameEngineSystem.Duck;
-import GameEngineSystem.Enemy;
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Label;
+import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 
-public class MainMenu {
+public class MainMenu extends JPanel{
 
-    static MouseShooter mouse = new MouseShooter();
-    static Duck duck = new Duck();
-    public static int MouseX;
-    public static int MouseY;
+    private static MouseShooter mouse = new MouseShooter(); 
+    private static Duck duck = new Duck(1); //creates instance of a duck
+    private static Point Mouse;
+    private static Graphics g;
+    
+    private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
 
 
     public static void main(String[] args) {
-
-        windows();
-        //duck.fly();
-        //Thread inside MouseShooter needs a try/catch
-
-//        try {
-//            mouse.getClick();
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
+        
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                windows();
+                //window.repaint();
+                paintScreen(g);
+            }
+        });
+        
         //Gets user text
         Scanner input = new Scanner(System.in);
 
@@ -48,25 +43,12 @@ public class MainMenu {
 
     public static void windows() {
 
-        JButton click = new JButton();
-
-        JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        window.getContentPane().add(duck.block, BorderLayout.CENTER); 
-
+        window.add(duck.block);
+        
         //Check the position of the click on the window
-        window.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                MouseX = e.getPoint().x;
-                MouseY = e.getPoint().y;
+        window.addMouseListener(MouseShooter.MouseAdapter());  
                 
-                System.out.println("X:" + MouseX + "Y:" + MouseY);
-//System.out.println(e.getPoint());
-            }
-        });  
-        
-    
-        
         window.setSize(600, 400); //window size
         window.setLocationRelativeTo(null); //puts the window in the center of the screen  
         window.setResizable(false);
@@ -75,5 +57,13 @@ public class MainMenu {
         window.setVisible(true);
 
     }
-
+    
+    public static Point getMouse() {
+        return Mouse;
+    }
+    
+    public static void paintScreen (Graphics g) {
+        window.paint(g);
+        window.revalidate();
+    }
 }
