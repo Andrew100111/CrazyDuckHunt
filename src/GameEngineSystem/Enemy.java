@@ -1,7 +1,11 @@
 
 package GameEngineSystem;
 
+import GameController.MouseShooter;
+import GameView.MainMenu;
+import java.awt.Graphics;
 import java.awt.Label;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,14 +18,16 @@ import javax.swing.JLabel;
 public abstract class Enemy {
     
     //si aparecen 100 patos: 
-    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
+   // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
     public int life; //hits needed to kill it
     public int points; //points the player earns
     public int speed; //speed of movement of each duck
     public float appearance; // percentage of apprearence on the screen
-    public JLabel block;
-    //public Label duck = new Label();
+    private static int x = 50; //location x
+    private static int y = 50; //location y
+    public static JLabel block;
+    
 
     public Enemy(int life, int points, int speed, float appearance) {
         this.life = life;
@@ -68,6 +74,8 @@ public abstract class Enemy {
     }
     
     //Retrieves Image
+    
+    //ADD RES FOLDER??
     public BufferedImage getImage(String path) {
         
         File file = new File(path);
@@ -118,8 +126,11 @@ public abstract class Enemy {
         
     } 
     
-    public static void die() {
+    public void die() {
         //pato se muere
+       
+        
+       if (block.getLocation() == MouseShooter.getP())
+            System.out.println("hello there");
     }
-    
 }
