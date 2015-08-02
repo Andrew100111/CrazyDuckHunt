@@ -14,7 +14,5 @@ public class GansoHawai extends Enemy {
     //int speed = 7; 
     //float appearance = 100; percentage of this duck: 10% 
     
-    public GansoHawai(int life, int points, int speed, float appearance) {
-        super(life, points, speed, appearance);
-    }
+    
 }
