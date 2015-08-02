@@ -16,7 +16,7 @@ public class Duck extends Enemy {
         
         if (N == 1) {
             
-            createDuck("C:/Users/Xcreed/Documents/NetBeansProjects/CrazyDuckHunt/src/res/block.png");
+            createDuck("C:/Users/Xcreed/Documents/NetBeansProjects/CrazyDuckHunt/src/res/face.png");
 
             fly();
         }
