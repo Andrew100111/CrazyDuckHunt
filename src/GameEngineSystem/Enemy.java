@@ -28,23 +28,6 @@ public abstract class Enemy {
     public final int height = 30;
     public final int width = 30;
     private int score = 0;
-
-    public Enemy(int life, int points, int speed, float appearance) {
-        this.life = life;
-        this.points = points;
-        this.speed = speed;
-        this.appearance = appearance;
-                
-    }
-    
-    public Enemy(String name) {
-        
-        if (name.equals("Colorado")) {
-            Enemy colorado = new Colorado();
-        }
-        //run();
-        
-    }
     
     //Delete this
     public Enemy (int i) {
@@ -52,6 +35,7 @@ public abstract class Enemy {
     }
     
     public Enemy() {
+        
         
     }
     
