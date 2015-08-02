@@ -20,5 +20,8 @@ public class Colorado extends Enemy {
         speed = 6;
         appearance = 100;
         
+        fly();
     }
+    
+    
 }
