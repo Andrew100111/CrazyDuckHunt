@@ -1,12 +1,6 @@
 
 package GameEngineSystem;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -22,12 +16,9 @@ public class Duck extends Enemy {
         
         if (N == 1) {
             
-            block = new JLabel(new ImageIcon(getImage("/home/randy/NetBeansProjects/CrazyDuckHunt/src/res/block.png")));  
-            block.revalidate();
+            createDuck("C:/Users/Xcreed/Documents/NetBeansProjects/CrazyDuckHunt/src/res/face.png");
 
-            System.out.println(block.getLocation()); 
-            //location is 0,0 idk why
-        
+            fly();
         }
         
     }    

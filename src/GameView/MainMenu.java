@@ -4,6 +4,7 @@ import GameController.MouseShooter;
 import GameEngineSystem.Duck;
 import GameEngineSystem.Enemy;
 import java.awt.BorderLayout;
+<<<<<<< HEAD
 import java.awt.Button;
 import java.awt.Label;
 import java.awt.event.MouseAdapter;
@@ -13,23 +14,47 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+=======
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.ActionListener;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+>>>>>>> origin/master
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 
+<<<<<<< HEAD
 public class MainMenu {
 
     static MouseShooter mouse = new MouseShooter();
     //static Duck duck = new Duck();
     
+=======
+public class MainMenu{
+
+    private static MouseShooter mouse = new MouseShooter(); 
+    private static Duck duck = new Duck(1); //creates instance of a duck
+    //private static 
+    private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
+    //private Timer timer = new Timer(20,new ActionListener());
+>>>>>>> origin/master
 
     public static void main(String... args) {
         
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                windows();
+                start();
+                //window.repaint();
+                //paintScreen(g);
+                
             }
         });
+<<<<<<< HEAD
 
         //Gets user text
         Scanner input = new Scanner(System.in);
@@ -51,6 +76,26 @@ public class MainMenu {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         //window.getContentPane().add(click, BorderLayout.CENTER); 
 
+=======
+        
+//        //Gets user text
+//        Scanner input = new Scanner(System.in);
+//
+//        String name = input.nextLine();
+//        //Keeps track of what the user entered
+//        System.out.println("You entered:");
+//        System.out.println(name);
+
+    }
+
+    public static void start() {
+        
+        Drawing draw = new Drawing();
+        
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
+        window.add(duck.block);
+        
+>>>>>>> origin/master
         //Check the position of the click on the window
         window.addMouseListener(MouseShooter.MouseAdapter());  
                 
@@ -64,6 +109,23 @@ public class MainMenu {
         //window.pack();
         window.setVisible(true);
 
+        
+            
+        draw.repaint();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
+<<<<<<< HEAD
 
+=======
+    
+//    public static void paintScreen (Graphics g) {
+//        window.paint(g);
+//        window.revalidate();
+//    }
+>>>>>>> origin/master
 }
