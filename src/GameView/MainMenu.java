@@ -5,6 +5,9 @@ import GameEngineSystem.Duck;
 import GameEngineSystem.Enemy;
 import java.awt.BorderLayout;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 import java.awt.Button;
 import java.awt.Label;
 import java.awt.event.MouseAdapter;
@@ -14,7 +17,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+<<<<<<< HEAD
+
 =======
+=======
+>>>>>>> master
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.ActionListener;
@@ -29,12 +36,16 @@ import javax.swing.Timer;
 
 
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 public class MainMenu {
 
     static MouseShooter mouse = new MouseShooter();
     //static Duck duck = new Duck();
     
 =======
+>>>>>>> master
 public class MainMenu{
 
     private static MouseShooter mouse = new MouseShooter(); 
@@ -44,17 +55,26 @@ public class MainMenu{
     //private Timer timer = new Timer(20,new ActionListener());
 >>>>>>> origin/master
 
+<<<<<<< HEAD
+
+    public static void main(String[] args) {
+=======
     public static void main(String... args) {
+>>>>>>> master
         
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                start();
+                //start();
+                NewClass.start();
                 //window.repaint();
                 //paintScreen(g);
                 
             }
         });
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 
         //Gets user text
         Scanner input = new Scanner(System.in);
@@ -76,7 +96,11 @@ public class MainMenu{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         //window.getContentPane().add(click, BorderLayout.CENTER); 
 
+<<<<<<< HEAD
+
 =======
+=======
+>>>>>>> master
         
 //        //Gets user text
 //        Scanner input = new Scanner(System.in);
@@ -93,7 +117,6 @@ public class MainMenu{
         Drawing draw = new Drawing();
         
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-        window.add(duck.block);
         
 >>>>>>> origin/master
         //Check the position of the click on the window
@@ -111,14 +134,17 @@ public class MainMenu{
 
         
             
-        draw.repaint();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+//        draw.repaint();
+//        try {
+//            Thread.sleep(100);
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
     }
+<<<<<<< HEAD
+
+=======
 <<<<<<< HEAD
 
 =======
@@ -128,4 +154,5 @@ public class MainMenu{
 //        window.revalidate();
 //    }
 >>>>>>> origin/master
+>>>>>>> master
 }
