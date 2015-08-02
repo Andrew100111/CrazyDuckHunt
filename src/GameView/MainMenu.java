@@ -4,6 +4,10 @@ import GameController.MouseShooter;
 import GameEngineSystem.Duck;
 import GameEngineSystem.Enemy;
 import java.awt.BorderLayout;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 import java.awt.Button;
 import java.awt.Label;
 import java.awt.event.MouseAdapter;
@@ -13,20 +17,35 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> master
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+>>>>>>> origin/master
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+public class MainMenu {
+
+    static MouseShooter mouse = new MouseShooter();
+    //static Duck duck = new Duck();
+    
+=======
+>>>>>>> master
 public class MainMenu{
 
     private static MouseShooter mouse = new MouseShooter(); 
@@ -34,9 +53,14 @@ public class MainMenu{
     //private static 
     private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
     //private Timer timer = new Timer(20,new ActionListener());
+>>>>>>> origin/master
 
+<<<<<<< HEAD
 
     public static void main(String[] args) {
+=======
+    public static void main(String... args) {
+>>>>>>> master
         
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -47,6 +71,10 @@ public class MainMenu{
                 
             }
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 
         //Gets user text
         Scanner input = new Scanner(System.in);
@@ -68,7 +96,11 @@ public class MainMenu{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         //window.getContentPane().add(click, BorderLayout.CENTER); 
 
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> master
         
 //        //Gets user text
 //        Scanner input = new Scanner(System.in);
@@ -86,6 +118,7 @@ public class MainMenu{
         
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         
+>>>>>>> origin/master
         //Check the position of the click on the window
         window.addMouseListener(MouseShooter.MouseAdapter());  
                 
@@ -109,5 +142,17 @@ public class MainMenu{
 //        }
 //        
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+//    public static void paintScreen (Graphics g) {
+//        window.paint(g);
+//        window.revalidate();
+//    }
+>>>>>>> origin/master
+>>>>>>> master
 }
