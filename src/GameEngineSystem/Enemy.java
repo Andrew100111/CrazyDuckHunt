@@ -2,7 +2,6 @@
 package GameEngineSystem;
 
 import GameController.MouseShooter;
-import static GameView.MainMenu.windows;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +24,7 @@ public abstract class Enemy {
     public float appearance; // percentage of apprearence on the screen
     private static int x = 0; //location x
     private static int y = 0; //location y
-    public static JLabel block;
+    public JLabel block;
     public final int height = 30;
     public final int width = 30;
     private int score = 0;
@@ -35,16 +34,26 @@ public abstract class Enemy {
         this.points = points;
         this.speed = speed;
         this.appearance = appearance;
-        
-        
+                
     }
     
-
-    public Enemy() {
+    public Enemy(String name) {
+        
+        if (name.equals("Colorado")) {
+            Enemy colorado = new Colorado();
+        }
         //run();
         
     }
     
+    //Delete this
+    public Enemy (int i) {
+        
+    }
+    
+    public Enemy() {
+        
+    }
     
     //#######################################################################//
    /*métodos necesarios acá
@@ -58,45 +67,42 @@ public abstract class Enemy {
     
     
     public void fly() { //every duck has the ability to fly
-        
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                
-                if (x ==600) {
-                    System.out.println("Limit");
-                }
-                if (x < 600) {
-            
-                    x++;            
-                    block.setLocation(x, y);
+     
+        if (x == 600) {
 
-                    block.revalidate();
+            x--;
 
-                    System.out.println(block.getLocation());
-                    
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    
-                    fly();
+        }
+
+        if (x ==0 || x < 600) {
+
+            x++;    
+            block.setLocation(x, y);
+            System.out.println(block.getBounds());
+
+        }
+          
+        else if (y == 400) {
             
-                }
-            }
-        });
-           
-//        else if (x > 0 || x == 0) {
-//            x--;
-//        }             
+            y--;
+        }    
         
+        else {
+             
+            y++;
+        }
+        
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+        }
     } 
     
     public void die() {
 
-        //System.out.println("block loc" + block.getLocation());
-        
-        if (life == 1) {
+                //Agregar aumentar score del player
+        if (life == 0) {
             System.out.println("DEAD");
             score++;
             System.out.println(score);
@@ -107,13 +113,17 @@ public abstract class Enemy {
             life--;
             System.out.println(life);
         }
+        
+        else {
+            System.out.println("Missed");
+        }
 
     }
     
     public JLabel createDuck(String path) {
         block = new JLabel(new ImageIcon(getImage(path)));  
-        block.setLocation(50, 50);
-        block.revalidate();
+        //block.setLocation(50, 50);
+        //block.revalidate();
         block.setSize(width, height);
         System.out.println(block.getBounds());
         return block;
@@ -168,4 +178,11 @@ public abstract class Enemy {
         
     }
     
+    public int getX() {
+        return x;
+    }
+    
+    public int getY() {
+        return y;
+    }
 }
