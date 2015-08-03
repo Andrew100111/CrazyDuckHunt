@@ -22,5 +22,7 @@ public class Prueba {
         } catch (Exception ex) {
             Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        System.out.println(new Colorado());
     }
 }

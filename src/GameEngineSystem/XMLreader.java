@@ -21,10 +21,10 @@ import org.w3c.dom.NodeList;
  */
 public class XMLreader {
  
-    private DOMParser parser = new DOMParser();
     private int stat;
     
     public int main() throws Exception {
+        
         //Get the DOM Builder Factory
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
@@ -50,7 +50,7 @@ public class XMLreader {
                 String content = node.getTextContent().trim();
                 switch (node.getNodeName()) {
                     
-                    //If the name of the enemy is:
+                    //If the name of the stat is:
                     case "speed" : stat = Integer.parseInt(content);
                     break;
                     
