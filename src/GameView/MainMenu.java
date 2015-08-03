@@ -28,7 +28,7 @@ import javax.swing.Timer;
 public class MainMenu{
     
     private static MouseShooter mouse = new MouseShooter(); 
-    private static Duck duck = new Duck(1); // instance of a duck
+    private static Duck duck = new Duck(); // instance of a duck
 
     private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
     
