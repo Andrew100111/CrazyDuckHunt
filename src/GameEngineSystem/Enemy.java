@@ -159,7 +159,7 @@ public abstract class Enemy {
             return image;
         } catch (IOException ex) {
            
-            Logger.getLogger(Duck.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         
