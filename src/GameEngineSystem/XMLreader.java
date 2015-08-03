@@ -6,6 +6,7 @@
 package GameEngineSystem;
 
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
@@ -21,7 +22,6 @@ import org.w3c.dom.NodeList;
 public class XMLreader {
  
     private DOMParser parser = new DOMParser();
-    private Enemy duck;
     private int stat;
     
     public int main() throws Exception {
@@ -33,9 +33,9 @@ public class XMLreader {
 
         //Load and Parse the XML document
         //document contains the complete XML as a Tree.
-        Document document = (Document) builder.parse(ClassLoader.getSystemResourceAsStream("xml/employee.xml"));
+        Document document = 
+                (Document) builder.parse(new File("src/res/DuckStats.xml"));
    
-        //List<Enemy> enemyList = new ArrayList();
         
         //Iterating through the nodes and extracting the data.
         NodeList nodeList = document.getDocumentElement().getChildNodes();
@@ -45,13 +45,15 @@ public class XMLreader {
             //Finds an element
             Node node = nodeList.item(i);
             
-            
+            //For every element in the xml
             if (node instanceof Object) {
                 String content = node.getTextContent().trim();
                 switch (node.getNodeName()) {
                     
+                    //If the name of the enemy is:
                     case "speed" : stat = Integer.parseInt(content);
-                        
+                    break;
+                    
                 }
                 
             }
