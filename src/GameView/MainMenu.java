@@ -27,16 +27,16 @@ import javax.swing.Timer;
 
 public class MainMenu{
     
-    public static void main(String... args) {
-        private static MouseShooter mouse = new MouseShooter(); 
-        private static Duck duck = new Duck(1); // instance of a duck
+    private static MouseShooter mouse = new MouseShooter(); 
+    private static Duck duck = new Duck(1); // instance of a duck
+
+    private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
     
-        private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
-        private Timer timer = new Timer(20,new ActionListener());
+    public static void main(String[] args) {
+        
 
     }
     
-}
 
     public static void windows() {
 
@@ -73,3 +73,4 @@ public class MainMenu{
         //window.pack();
         //window.setVisible(true);
     }
+}
