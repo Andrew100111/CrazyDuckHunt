@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  */
 public class Drawing extends JPanel{ 
     
-    private Enemy enemy = new Duck(1);
+    private Enemy enemy = new Duck();
     
     public void paintComponent(Graphics g) {
         

@@ -18,25 +18,24 @@ public abstract class Enemy {
     //si aparecen 100 patos: 
    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
-    public int life = 5; //hits needed to kill it
-    public int points; //points the player earns
-    public int speed; //speed of movement of each duck
-    public float appearance; // percentage of apprearence on the screen
+    protected int life = 5; //hits needed to kill it
+    protected int points; //points the player earns
+    protected double speed; //speed of movement of each duck
+    protected double appearance; // percentage of apprearence on the screen
     private static int x = 0; //location x
     private static int y = 0; //location y
     public JLabel block;
     public final int height = 30;
     public final int width = 30;
-    private int score = 0;
-    
-    //Delete this
-    public Enemy (int i) {
+    private int score = 0;//Try for die()
         
-    }
-    
     public Enemy() {
         
-        
+        try {
+            speed = getSpeed();
+        } catch (Exception ex) {
+            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //#######################################################################//
@@ -76,8 +75,10 @@ public abstract class Enemy {
             y++;
         }
         
+        //Delay in the method to execute again
         try {
-            Thread.sleep(100);
+            Thread.sleep((int) speed); //The faster they move equals 
+                                        //the delay on this defined by speed
         } catch (InterruptedException ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,15 +130,17 @@ public abstract class Enemy {
         this.points = points;
     }
 
-    public int getSpeed() {
-        return speed;
+    public double getSpeed() throws Exception {
+        XMLreader xml = new XMLreader();
+        //speed = xml.main();
+        return xml.main();
     }
 
     public void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public float getAppearance() {
+    public double getAppearance() {
         return appearance;
     }
 

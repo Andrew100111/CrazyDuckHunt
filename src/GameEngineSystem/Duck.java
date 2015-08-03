@@ -12,15 +12,12 @@ public class Duck extends Enemy {
 //    }
     
     //just trying
-    public Duck(int N) {
-        
-        if (N == 1) {
+    public Duck() {
             
-            createDuck("C:/Users/Xcreed/Documents/NetBeansProjects/CrazyDuckHunt/src/res/face.png");
+        createDuck("C:/Users/Xcreed/Documents/NetBeansProjects/CrazyDuckHunt/src/res/face.png");
 
-            fly();
-        }
-        
+        fly();
+                
     }    
             
 }
