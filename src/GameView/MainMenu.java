@@ -1,7 +1,6 @@
 package GameView;
 
 import GameController.MouseShooter;
-import GameEngineSystem.Duck;
 import GameEngineSystem.Enemy;
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -28,7 +27,6 @@ import javax.swing.Timer;
 public class MainMenu{
     
     private static MouseShooter mouse = new MouseShooter(); 
-    private static Duck duck = new Duck(); // instance of a duck
 
     private static JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
     

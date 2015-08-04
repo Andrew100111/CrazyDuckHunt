@@ -24,5 +24,6 @@ public class Prueba {
         }
         
         System.out.println(new Colorado());
+        System.out.println(new GansoHawai());
     }
 }
