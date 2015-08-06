@@ -27,9 +27,10 @@ public class MainMenu {
         
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                windows();
+            windows();
             }
         });
+    
 
         //Gets user text
         Scanner input = new Scanner(System.in);
@@ -47,7 +48,7 @@ public class MainMenu {
 
         click.setSize(20, 10);
 
-        JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
+        JFrame window = new JFrame("Crazy "); //creates window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
         //window.getContentPane().add(click, BorderLayout.CENTER); 
 
