@@ -2,9 +2,11 @@
 package GameEngineSystem;
 
 import GameController.MouseShooter;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -18,13 +20,15 @@ public abstract class Enemy {
     //si aparecen 100 patos: 
    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
-    protected int life = 5; //hits needed to kill it
+    protected int life; //hits needed to kill it
     protected int points; //points the player earns
     protected double speed; //speed of movement of each duck
     protected double appearance; // percentage of apprearence on the screen
+    protected Random random = new Random();
+    private Point location;
     private static int x = 0; //location x
     private static int y = 0; //location y
-    public JLabel block;
+    public JLabel label;
     public final int height = 30;
     public final int width = 30;
     private int score = 0;//Try for die()
@@ -60,9 +64,7 @@ public abstract class Enemy {
         if (x ==0 || x < 600) {
 
             x++;    
-            block.setLocation(x, y);
-            System.out.println(block.getBounds());
-
+            
         }
           
         else if (y == 400) {
@@ -91,10 +93,10 @@ public abstract class Enemy {
             System.out.println("DEAD");
             score++;
             System.out.println(score);
-            block.setEnabled(false);
+            label.setEnabled(false);
         }
         
-        else if (block.contains(MouseShooter.getP())) {
+        else if (label.contains(MouseShooter.getP())) {
             life--;
             System.out.println(life);
         }
@@ -106,12 +108,12 @@ public abstract class Enemy {
     }
     
     public JLabel createDuck(String path) {
-        block = new JLabel(new ImageIcon(getImage(path)));  
+        label = new JLabel(new ImageIcon(getImage(path)));  
         //block.setLocation(50, 50);
         //block.revalidate();
-        block.setSize(width, height);
-        System.out.println(block.getBounds());
-        return block;
+        label.setSize(width, height);
+        System.out.println(label.getBounds());
+        return label;
     }
 
     public int getLife() {
@@ -171,5 +173,23 @@ public abstract class Enemy {
     
     public int getY() {
         return y;
+    }
+    
+    public void setX(int i) {
+        x = i;
+    }
+    
+    public void setY(int i) {
+       y = i;
+    }
+    
+    public void setLocation(int x, int y) {
+        
+        location = new Point(x, y);
+    }
+    
+    public Point getLocation() {
+        
+        return location;
     }
 }

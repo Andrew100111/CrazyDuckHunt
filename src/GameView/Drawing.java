@@ -5,7 +5,6 @@
  */
 package GameView;
 
-import GameEngineSystem.Duck;
 import GameEngineSystem.Enemy;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -15,12 +14,9 @@ import javax.swing.JPanel;
  * @author Xcreed
  */
 public class Drawing extends JPanel{ 
-    
-    private Enemy enemy = new Duck();
-    
+        
     public void paintComponent(Graphics g) {
         
-        enemy.fly();
         //enemy.block.setLocation(enemy.getX(), enemy.getY());
         //enemy.block.repaint();
 //        super.update(g);
