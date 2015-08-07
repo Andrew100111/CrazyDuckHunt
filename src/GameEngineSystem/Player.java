@@ -10,7 +10,9 @@ public class Player {
     
     MouseShooter mouse = new MouseShooter();
     
-    int score = 0; //player doesn't have lifes, it's only score
+    private int Score;
+    private String Name;
+    private IPAddress IP;
     
     public void shoot() {                 
         
@@ -18,7 +20,7 @@ public class Player {
     
     public int getScore() {
         
-        return score;
+        return Score;
     }
     
     
