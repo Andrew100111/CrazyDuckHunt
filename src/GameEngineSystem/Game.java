@@ -19,9 +19,6 @@ import org.w3c.dom.NodeList;
  */
 public class Game {
     
-    private int Score;
-    private String Name;
-    private IPAddress IP;
     private LinkedList Enemies = new LinkedList(); //since there is 25 ducks per level
     private int time = 90;
     private int Level = 1;
