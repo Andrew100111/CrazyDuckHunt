@@ -5,6 +5,7 @@
  */
 package GameEngineSystem;
 
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,15 +16,16 @@ import java.util.logging.Logger;
 public class Prueba {
     
     private static XMLreader xml = new XMLreader();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static Game game = new Game();
+    
     
     public static void main(String[] args) {
-        try {
-            System.out.println(xml.main());
-        } catch (Exception ex) {
-            Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-        System.out.println(new Colorado());
-        System.out.println(new GansoHawai());
+        while (true) {
+            String line = scanner.nextLine();
+            game.tryDeath(Integer.parseInt(line));
+            game.checkAmount();
+        }
     }
 }
