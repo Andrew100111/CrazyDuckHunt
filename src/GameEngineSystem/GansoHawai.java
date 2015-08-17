@@ -4,8 +4,8 @@ public class GansoHawai extends Enemy {
     
     public GansoHawai() {
         
-        getImage("src/res/gansoHawai1.png");
-        createDuck("src/res/gansoHawai1.png");
+        //getImage("src/res/gansoHawai1.png");
+        //createDuck("src/res/gansoHawai1.png");
         life = 2;
         points = 10;
         speed = speed * 0.7;

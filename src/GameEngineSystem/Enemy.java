@@ -94,14 +94,14 @@ public abstract class Enemy {
 
     }
     
-    public ImageIcon createDuck(String path) {
-        duck = new ImageIcon(getImage(path));  
-        //block.setLocation(50, 50);
-        //block.revalidate();
+//    public ImageIcon createDuck(String path) {
+//        duck = new ImageIcon(getImage(path));  
+//        block.setLocation(50, 50);
+//        block.revalidate();
 //        duck.setSize(width, height);
 //        System.out.println(duck.getBounds());
-        return duck;
-    }
+//        return duck;
+//    }
 
     public int getLife() {
         return life;
@@ -140,21 +140,21 @@ public abstract class Enemy {
     //retrieves Image
     
     //ADD RES FOLDER ??
-    public BufferedImage getImage(String path) {
-        
-        File file = new File(path);
-        try {
-            duck = ImageIO.read(file); 
-            //BufferedImage image = ImageIO.read(file);
-            //return image;
-            return duck;
-        } catch (IOException ex) {
-           
-            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-        
-    }
+//    public BufferedImage getImage(String path) {
+//        
+//        File file = new File(path);
+//        try {
+//            duck = ImageIO.read(file); 
+//            //BufferedImage image = ImageIO.read(file);
+//            //return image;
+//            return duck;
+//        } catch (IOException ex) {
+//           
+//            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+//            return null;
+//        }
+//        
+//    }
     
     public int getX() {
         return x;
