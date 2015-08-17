@@ -1,15 +1,24 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package GameEngineSystem;
 
+import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-//Class to access the xml file for the ducks' stats
-
+/**
+ * Class to access the xml file for the ducks' stats
+ * @author Xcreed
+ */
 public class XMLreader {
  
     private int stat;

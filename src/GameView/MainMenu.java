@@ -1,32 +1,33 @@
 package GameView;
 
+import GameController.MouseShooter;
 import GameEngineSystem.Game;
 import javax.swing.JFrame;
 
 
-public class MainMenu{
+public class MainMenu extends JFrame{
     
     private static Game game = new Game();
+    private static Drawing draw = new Drawing();
+    private static MouseShooter mouse = new MouseShooter();
     
     public static void main(String[] args) {
-        
-        start();
-
+          
+        new MainMenu();
     }
     
-    public static void start() {
+    public MainMenu() {
         
-        JFrame window = new JFrame("Crazy Duck Hunter"); //creates window
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closing operation
-                        
-        window.setSize(1000, 400); //window size
-        window.setLocationRelativeTo(null); //puts the window in the center of the screen  
-        window.setResizable(true); //don't allow to change size of the window
-        
-        //window.add(game.getDuck("Ganso").duck);
-        //window.add(new GansoHawai().duck);
-         
-        window.pack();
+        JFrame window = new JFrame();
+        window.setTitle("CDH");
+        window.setSize(1000,600);
+        window.addMouseListener(mouse.MouseAdapter());
+        window.getContentPane().add(new Drawing());
         window.setVisible(true);
+        window.setLocationRelativeTo(null);
+        window.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
     }
+    
+    
 }

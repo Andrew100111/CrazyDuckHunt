@@ -1,7 +1,15 @@
+
 package GameEngineSystem;
 
-public class PatoSalvaje extends Enemy{
 
+public class PatoSalvaje extends Enemy{
+    
+    
+    //int life = 1;
+    //int points = 1;
+    //int speed = 10; percentage of this duck: 90%
+    //float appearance = 100; percentage of this duck: 1% 
+    
     public PatoSalvaje() {
         
         life = 1;
@@ -9,6 +17,7 @@ public class PatoSalvaje extends Enemy{
         speed = speed * 0.4;
     }
     
+    //This duck moves all over the screen
     @Override
     public void fly() {
         
