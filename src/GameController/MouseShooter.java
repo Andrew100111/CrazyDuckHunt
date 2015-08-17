@@ -1,17 +1,10 @@
 
 package GameController;
 
-import GameView.MainMenu;
-import java.awt.BorderLayout;
-import java.awt.MouseInfo;
 import java.awt.Point;
-import java.awt.PointerInfo;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Scanner;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 
 
 public class MouseShooter {
