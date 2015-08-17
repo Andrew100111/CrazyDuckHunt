@@ -2,7 +2,9 @@
 package GameEngineSystem;
 
 import GameController.MouseShooter;
+import java.awt.Color;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,9 +12,6 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 
 
 public abstract class Enemy {
@@ -26,56 +25,38 @@ public abstract class Enemy {
     protected double appearance; // percentage of apprearence on the screen
     protected Random random = new Random();
     private Point location;
-    private static int x = 0; //location x
-    private static int y = 0; //location y
-    public ImageIcon duck;
-    public final int height = 30;
-    public final int width = 30;
-        
+    private static int x; //location x
+    private static int y; //location y
+    public BufferedImage duck;
+    public final int height = 300;
+    public final int width = 150;
+    public Rectangle rec = new Rectangle(x,y,height,width);
+    protected Color color;
+    
     public Enemy() {
         
+        //drawEnemy(x,y);
         try {
             speed = getSpeed();
         } catch (Exception ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    //#######################################################################//
-   /*métodos necesarios acá
-    ortorgarPuntos() -> en cada clase según tipo de pato
-    aparecerEnPantalla() 
-    desaparecerEnPantalla()
-    quitarPuntos() -> solo YagasuaPiquirrojo, metodo en su clase
-    
-    */
-    
-    
-    
+   
     public void fly() { //every duck has the ability to fly
      
         if (x == 600) {
-
             x--;
-
         }
-
         if (x ==0 || x < 600) {
-
-            x++;    
-            
+            x++;   
         }
-          
         else if (y == 400) {
-            
             y--;
         }    
-        
         else {
-             
             y++;
         }
-        
         //Delay in the method to execute again
         try {
             Thread.sleep((int) speed); //The faster they move equals 
@@ -93,25 +74,25 @@ public abstract class Enemy {
         }
         
         //Ducks is being shot
-//        else if (duck.contains(MouseShooter.getP())) {
-//            life--;
-//            System.out.println(life);
-//        }
+        else if (rec.getBounds().contains(MouseShooter.getPoint())) {
+            System.out.println("Ouch!");
+            life--;
+            System.out.println(life);
+        }
         
         else {
             System.out.println("Missed");
         }
-
     }
     
-    public ImageIcon createDuck(String path) {
-        duck = new ImageIcon(getImage(path));  
-        //block.setLocation(50, 50);
-        //block.revalidate();
-//        duck.setSize(width, height);
-//        System.out.println(duck.getBounds());
-        return duck;
-    }
+//    public ImageIcon createDuck(String path) {
+//        duck = new ImageIcon(getImage(path));  
+//        //block.setLocation(50, 50);
+//        //block.revalidate();
+////        duck.setSize(width, height);
+////        System.out.println(duck.getBounds());
+//        return duck;
+//    }
 
     public int getLife() {
         return life;
@@ -148,20 +129,18 @@ public abstract class Enemy {
     }
     
     //Retrieves Image
-    
-    //ADD RES FOLDER??
     public BufferedImage getImage(String path) {
-        
         File file = new File(path);
         try {
-            BufferedImage image = ImageIO.read(file);
-            return image;
+            duck = ImageIO.read(file); 
+            //BufferedImage image = ImageIO.read(file);
+            //return image;
+            return duck;
         } catch (IOException ex) {
            
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        
     }
     
     public int getX() {
@@ -181,12 +160,20 @@ public abstract class Enemy {
     }
     
     public void setLocation(int x, int y) {
-        
         location = new Point(x, y);
     }
     
     public Point getLocation() {
-        
         return location;
+    }
+    
+    private Rectangle drawEnemy(int x, int y) {
+        //rec.setSize(width, height);
+        rec.setLocation(x, y);
+        return rec;
+    }
+    
+    public Color getColor() {
+        return color;
     }
 }

@@ -15,30 +15,25 @@ import javax.swing.JFrame;
 
 
 public class MouseShooter {
-    
 
     private static Point Mouse;
-                
-        
     //Gets the location of the pointer
     public void getClick() {     
-       
     }
     
     //Get the pointer location
-    public static Point getP() {
+    public static Point getPoint() {
         return Mouse;
     }
     
     
     //Adds the method to retrieve the click location on the window
-    public static MouseListener MouseAdapter() {
+    public MouseListener MouseAdapter() {
         MouseAdapter mouseAdapter = new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {
                 Mouse = e.getPoint();
-                
-                System.out.println("X:" + Mouse);
-            
+                System.out.println("Mouse Shooter" + Mouse);
             }
         };
         return mouseAdapter;

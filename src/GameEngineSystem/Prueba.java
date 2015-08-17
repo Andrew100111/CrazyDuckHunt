@@ -5,6 +5,7 @@
  */
 package GameEngineSystem;
 
+import GameView.Drawing;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ public class Prueba {
     private static XMLreader xml = new XMLreader();
     private static final Scanner scanner = new Scanner(System.in);
     private static Game game = new Game();
+    private static Drawing draw = new Drawing();
     
     
     public static void main(String[] args) {

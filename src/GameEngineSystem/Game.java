@@ -5,13 +5,10 @@
  */
 package GameEngineSystem;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import GameEngineSystem.Enemy;
 import java.util.LinkedList;
-import org.w3c.dom.NodeList;
 
 /**
  *
@@ -22,6 +19,7 @@ public class Game {
     private LinkedList Enemies = new LinkedList(); //since there is 25 ducks per level
     private LinkedList EnemiesOnScreen = new LinkedList();
     private int Level = 1;
+    private Enemy colorado = new GansoHawai();
     
     public Game() {
         
@@ -29,12 +27,13 @@ public class Game {
 //            System.out.println(getEnemy().get(i));
 //        }
         
+        System.out.println("Game " + colorado.rec);
         getEnemy();
         checkAmount();
     }
     
     //25 ducks per level, will be in the array 
-    private LinkedList getEnemy() {
+    public LinkedList getEnemy() {
         
         Random random = new Random();
 
@@ -58,7 +57,7 @@ public class Game {
         
         Enemies.remove(i);
         Enemies.size();
-        System.out.println(Enemies.size());
+        //System.out.println(Enemies.size());
     }
     
     //make private//Checks the amount of enemies in the list
@@ -69,7 +68,6 @@ public class Game {
             System.out.println("Congrats");
             Level++;
         }
-        
         //No more time and enemies left = Game Over
         if (EnemiesOnScreen.size() == 25) {
             System.out.println("Game Over");
@@ -82,11 +80,8 @@ public class Game {
         if (Type.equals("Ganso")) { 
             duck = new GansoHawai(); 
         }
-        
         else {
-            
         }
-        
         return duck;
     }
 }
