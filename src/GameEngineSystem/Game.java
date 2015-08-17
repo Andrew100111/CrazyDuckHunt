@@ -5,13 +5,10 @@
  */
 package GameEngineSystem;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import GameEngineSystem.Enemy;
 import java.util.LinkedList;
-import org.w3c.dom.NodeList;
 
 /**
  *
@@ -34,7 +31,7 @@ public class Game {
     }
     
     //25 ducks per level, will be in the array 
-    private LinkedList getEnemy() {
+    public LinkedList getEnemy() {
         
         Random random = new Random();
 

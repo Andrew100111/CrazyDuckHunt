@@ -28,7 +28,7 @@ public abstract class Enemy {
     private Point location;
     private static int x = 0; //location x
     private static int y = 0; //location y
-    public ImageIcon duck;
+    public BufferedImage duck;
     public final int height = 30;
     public final int width = 30;
         
@@ -154,8 +154,10 @@ public abstract class Enemy {
         
         File file = new File(path);
         try {
-            BufferedImage image = ImageIO.read(file);
-            return image;
+            duck = ImageIO.read(file); 
+            //BufferedImage image = ImageIO.read(file);
+            //return image;
+            return duck;
         } catch (IOException ex) {
            
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
