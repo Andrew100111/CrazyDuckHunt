@@ -1,7 +1,10 @@
 
 package GameEngineSystem;
 
+import GameController.MouseShooter;
+import java.awt.Color;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,17 +12,12 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 
 public abstract class Enemy {
     
     //si aparecen 100 patos: 
-        // 82 PatosSalvados, 
-        //5 PatosColorados, 
-        //2 TarrosCanelo, 
-        //10GansoHawai, 
-        //1YPiquirrojo
+   // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
     protected int life; //hits needed to kill it
     protected int points; //points the player earns
@@ -27,48 +25,41 @@ public abstract class Enemy {
     protected double appearance; // percentage of apprearence on the screen
     protected Random random = new Random();
     private Point location;
-    private static int x = 0; //location x
-    private static int y = 0; //location y
+    private static int x; //location x
+    private static int y; //location y
     public BufferedImage duck;
-    public final int height = 30;
-    public final int width = 30;
+    public final int height = 300;
+    public final int width = 150;
+    public Rectangle rec = new Rectangle(x,y,height,width);
+    protected Color color;
+    
+    public Enemy() {
         
-    public Enemy(){
-        
+        //drawEnemy(x,y);
         try {
             speed = getSpeed();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void fly(){ //every duck has the ability to fly
+   
+    public void fly() { //every duck has the ability to fly
      
         if (x == 600) {
-
             x--;
-
         }
-
         if (x ==0 || x < 600) {
-
-            x++;    
-            
+            x++;   
         }
-          
         else if (y == 400) {
-            
             y--;
         }    
-        
         else {
-             
             y++;
         }
-        
-        //delay in the method to execute again
+        //Delay in the method to execute again
         try {
-            Thread.sleep((int) speed); //the faster they move equals 
+            Thread.sleep((int) speed); //The faster they move equals 
                                         //the delay on this defined by speed
         } catch (InterruptedException ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,21 +68,21 @@ public abstract class Enemy {
     
     public void die() {
 
-        //agregar aumentar score del player
+                //Agregar aumentar score del player
         if (life == 0) {
             System.out.println("DEAD");
         }
         
-//        //Ducks is being shot
-//        else if (duck.contains(MouseShooter.getP())) {
-//            life--;
-//            System.out.println(life);
-//        }
+        //Ducks is being shot
+        else if (rec.getBounds().contains(MouseShooter.getPoint())) {
+            System.out.println("Ouch!");
+            life--;
+            System.out.println(life);
+        }
         
         else {
             System.out.println("Missed");
         }
-
     }
     
 //    public ImageIcon createDuck(String path) {
@@ -100,6 +91,11 @@ public abstract class Enemy {
 //        block.revalidate();
 //        duck.setSize(width, height);
 //        System.out.println(duck.getBounds());
+
+//        //block.setLocation(50, 50);
+//        //block.revalidate();
+////        duck.setSize(width, height);
+////        System.out.println(duck.getBounds());
 //        return duck;
 //    }
 
@@ -155,6 +151,21 @@ public abstract class Enemy {
 //        }
 //        
 //    }
+    //Retrieves Image
+    public BufferedImage getImage(String path) {
+        File file = new File(path);
+        try {
+            duck = ImageIO.read(file); 
+            //BufferedImage image = ImageIO.read(file);
+            //return image;
+            return duck;
+        } catch (IOException ex) {
+           
+            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
     
     public int getX() {
         return x;
@@ -173,12 +184,20 @@ public abstract class Enemy {
     }
     
     public void setLocation(int x, int y) {
-        
         location = new Point(x, y);
     }
     
     public Point getLocation() {
-        
         return location;
+    }
+    
+    private Rectangle drawEnemy(int x, int y) {
+        //rec.setSize(width, height);
+        rec.setLocation(x, y);
+        return rec;
+    }
+    
+    public Color getColor() {
+        return color;
     }
 }
