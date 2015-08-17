@@ -70,12 +70,8 @@ public class Game {
         Enemy duck = null;
         if (Type.equals("Ganso")) { 
             duck = new GansoHawai(); 
+        }else{ 
         }
-        
-        else {
-            
-        }
-        
         return duck;
     }
 }

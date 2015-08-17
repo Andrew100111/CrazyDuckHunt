@@ -1,7 +1,4 @@
-
-
 package GameEngineSystem;
-
 
 public class GansoHawai extends Enemy {
     

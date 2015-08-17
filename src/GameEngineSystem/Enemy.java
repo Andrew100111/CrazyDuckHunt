@@ -1,7 +1,6 @@
 
 package GameEngineSystem;
 
-import GameController.MouseShooter;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,14 +10,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 
 
 public abstract class Enemy {
     
     //si aparecen 100 patos: 
-   // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
+        // 82 PatosSalvados, 
+        //5 PatosColorados, 
+        //2 TarrosCanelo, 
+        //10GansoHawai, 
+        //1YPiquirrojo
 
     protected int life; //hits needed to kill it
     protected int points; //points the player earns
@@ -32,27 +33,16 @@ public abstract class Enemy {
     public final int height = 30;
     public final int width = 30;
         
-    public Enemy() {
+    public Enemy(){
         
         try {
             speed = getSpeed();
-        } catch (Exception ex) {
+        }catch (Exception ex){
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    //#######################################################################//
-   /*métodos necesarios acá
-    ortorgarPuntos() -> en cada clase según tipo de pato
-    aparecerEnPantalla() 
-    desaparecerEnPantalla()
-    quitarPuntos() -> solo YagasuaPiquirrojo, metodo en su clase
-    
-    */
-    
-    
-    
-    public void fly() { //every duck has the ability to fly
+    public void fly(){ //every duck has the ability to fly
      
         if (x == 600) {
 
@@ -76,9 +66,9 @@ public abstract class Enemy {
             y++;
         }
         
-        //Delay in the method to execute again
+        //delay in the method to execute again
         try {
-            Thread.sleep((int) speed); //The faster they move equals 
+            Thread.sleep((int) speed); //the faster they move equals 
                                         //the delay on this defined by speed
         } catch (InterruptedException ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,12 +77,12 @@ public abstract class Enemy {
     
     public void die() {
 
-                //Agregar aumentar score del player
+        //agregar aumentar score del player
         if (life == 0) {
             System.out.println("DEAD");
         }
         
-        //Ducks is being shot
+//        //Ducks is being shot
 //        else if (duck.contains(MouseShooter.getP())) {
 //            life--;
 //            System.out.println(life);
@@ -147,9 +137,9 @@ public abstract class Enemy {
         this.appearance = appearance;
     }
     
-    //Retrieves Image
+    //retrieves Image
     
-    //ADD RES FOLDER??
+    //ADD RES FOLDER ??
     public BufferedImage getImage(String path) {
         
         File file = new File(path);
