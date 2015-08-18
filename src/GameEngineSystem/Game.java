@@ -22,10 +22,9 @@ import javax.swing.JPanel;
  */
 public class Game extends JPanel{
     
-    private final LinkedList Enemies = new LinkedList(); //since there is 25 ducks per level
+    private final List<Enemy> Enemies = new ArrayList<Enemy>(); //since there is 25 ducks per level
     private LinkedList EnemiesOnScreen = new LinkedList();
     private int Level = 1;
-    private Enemy colorado = new GansoHawai();
     
     public Game() {
         
@@ -39,17 +38,16 @@ public class Game extends JPanel{
     }
     
     //25 ducks per level, will be in the array 
-    public LinkedList getEnemy() {
+    public List getEnemy() {
         
         Random random = new Random();
 
-        List ducks = new ArrayList();
-        ducks.add(new Colorado());
-        ducks.add(new PatoSalvaje());
+        List<Enemy> ducks = new ArrayList();
+        //ducks.add(new Colorado());
+        //ducks.add(new PatoSalvaje());
         ducks.add(new GansoHawai());
-        ducks.add(new TarroCanelo());
-        ducks.add(new YaguasaPiquirrojo());
-        
+//        ducks.add(new TarroCanelo());
+//        ducks.add(new YaguasaPiquirrojo());
         
         for (int i = Enemies.size(); i < 25; i++) {
             Enemies.add(ducks.get(random.nextInt(ducks.size())));
@@ -60,15 +58,12 @@ public class Game extends JPanel{
     
     //Removes the duck that is inside of each index
     public void tryDeath(int i) {
-        
         Enemies.remove(i);
         Enemies.size();
-        //System.out.println(Enemies.size());
     }
     
     //make private//Checks the amount of enemies in the list
-    public void checkAmount(){ 
-        
+    public void checkAmount(){
         //No more enemies = next level
         if (Enemies.isEmpty()){
             System.out.println("Congrats");
@@ -80,26 +75,19 @@ public class Game extends JPanel{
         }
     }
     
-    public Enemy getDuck(String Type) {
-        
-        Enemy duck = null;
-        if (Type.equals("Ganso")) { 
-            duck = new GansoHawai(); 
-        }
-        else {
-        }
-        return duck;
-    }
-    
     @Override
     public void paintComponent(Graphics g) {    
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        for (int i = 0; i < Enemies.size(); i++) {
-            System.out.println(Enemies.get(i));
-            //g2.setColor((Enemies.get(i).getColor());
-            g2.draw(Enemies.rec);
+        for (Enemy enemy : Enemies) {
+            //System.out.println(enemy);
+            g2.setColor(enemy.getColor());
+            g2.draw(enemy.rec);
+            g2.fill(enemy.rec);
+            //enemy.rec.setLocation(enemy.getLocation());
+            //super.repaint();
         }
-
+        
+        //super.repaint();
     }
 }
