@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +24,7 @@ public abstract class Enemy{
     //si aparecen 100 patos: 
    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
-    protected int life; //hits needed to kill it
+    protected int life = 10; //hits needed to kill it
     protected int points; //points the player earns
     protected double speed; //speed of movement of each duck
     protected double appearance; // percentage of apprearence on the screen
@@ -36,10 +38,10 @@ public abstract class Enemy{
     public Rectangle rec = new Rectangle(x,y,height,width);
     protected Color color;
     protected String type;
+    protected boolean state = false;
     
     public Enemy() {
-        
-        //drawEnemy(x,y);
+         
         try {
             speed = getSpeed();
         } catch (Exception ex) {
@@ -48,18 +50,18 @@ public abstract class Enemy{
     }
    
     public void fly() { //every duck has the ability to fly
-     
+
         if (x == 600) {
-            x--;
+            setLocation(x--,y);
         }
         if (x ==0 || x < 600) {
-            x++;   
+            setLocation(x++,y);
         }
         else if (y == 400) {
-            y--;
+            setLocation(x,y--);
         }    
         else {
-            y++;
+            setLocation(x,y++);
         }
         //Delay in the method to execute again
         try {
@@ -77,8 +79,11 @@ public abstract class Enemy{
             System.out.println("DEAD");
         }
         
-        //Ducks is being shot
+        //Ducks is being shot (NO Sirve) 
+        //Puntero relativo a la pantalla y no a las figuras
         else if (rec.getBounds().contains(MouseShooter.getPoint())) {
+        //if ( MouseShooter.getPoint().x >= rec.getMinX() && MouseShooter.getPoint().x <= rec.getMaxX()   // check if X is within range
+            //&& ( MouseShooter.getPoint().y >= rec.getMinY() && MouseShooter.getPoint().y <= rec.getMaxY())) { // check if y is within range
             System.out.println("Ouch!");
             life--;
             System.out.println(life);
@@ -171,17 +176,8 @@ public abstract class Enemy{
         return location;
     }
     
-    private Rectangle drawEnemy(int x, int y) {
-        //rec.setSize(width, height);
-        rec.setLocation(x, y);
-        return rec;
-    }
-    
     public Color getColor() {
         return color;
     }
-    
-    public String getType(){
-        return type;
-    }
+
 }
