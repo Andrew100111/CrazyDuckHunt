@@ -30,12 +30,12 @@ public abstract class Enemy{
     protected double appearance; // percentage of apprearence on the screen
     protected Random random = new Random();
     private Point location;
-    private static int x; //location x
-    private static int y; //location y
+    protected int x; //location x
+    protected int y; //location y
     public BufferedImage duck;
     public final int height = 30;
     public final int width = 25;
-    public Rectangle rec = new Rectangle(x,y,height,width);
+    public Rectangle rec = new Rectangle(getX(),getY(),height,width);
     protected Color color;
     protected String type;
     protected boolean state = false;
@@ -54,7 +54,7 @@ public abstract class Enemy{
         if (x == 600) {
             setLocation(x--,y);
         }
-        if (x ==0 || x < 600) {
+        if (x == 0 || x < 600) {
             setLocation(x++,y);
         }
         else if (y == 400) {
@@ -170,10 +170,6 @@ public abstract class Enemy{
     
     public void setLocation(int x, int y) {
         location = new Point(x, y);
-    }
-    
-    public Point getLocation() {
-        return location;
     }
     
     public Color getColor() {

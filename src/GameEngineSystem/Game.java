@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  */
 public class Game extends JPanel{
     
-    private final List<Enemy> Enemies = new ArrayList<Enemy>(); //since there is 25 ducks per level
+    private List<Enemy> Enemies = new ArrayList<Enemy>(); //since there is 25 ducks per level
     private LinkedList EnemiesOnScreen = new LinkedList();
     private int Level = 1;
     
@@ -43,7 +43,7 @@ public class Game extends JPanel{
         Random random = new Random();
 
         List<Enemy> ducks = new ArrayList();
-        //ducks.add(new Colorado());
+        ducks.add(new Colorado());
         //ducks.add(new PatoSalvaje());
         ducks.add(new GansoHawai());
 //        ducks.add(new TarroCanelo());
@@ -57,10 +57,6 @@ public class Game extends JPanel{
     }
     
     //Removes the duck that is inside of each index
-    public void tryDeath(int i) {
-        Enemies.remove(i);
-        Enemies.size();
-    }
     
     //make private//Checks the amount of enemies in the list
     public void checkAmount(){
@@ -74,20 +70,21 @@ public class Game extends JPanel{
             System.out.println("Game Over");
         }
     }
-    
+    //ONly 2 rectangles are showing
     @Override
     public void paintComponent(Graphics g) {    
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         for (Enemy enemy : Enemies) {
-            //System.out.println(enemy);
+            //Sets color and the new location and draws the rectangle
             g2.setColor(enemy.getColor());
+            enemy.rec.setLocation(enemy.getX(), enemy.getY());
             g2.draw(enemy.rec);
+            
             g2.fill(enemy.rec);
-            //enemy.rec.setLocation(enemy.getLocation());
+            
             //super.repaint();
         }
-        
         //super.repaint();
     }
 }

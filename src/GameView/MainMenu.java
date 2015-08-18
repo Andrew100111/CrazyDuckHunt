@@ -27,9 +27,9 @@ public class MainMenu extends JFrame{
         JFrame window = new JFrame();
         window.setTitle("CDH");
         window.setSize(1000,600);
-        window.addMouseListener(mouse.MouseAdapter());
-        window.getContentPane().add(game);
         
+        window.getContentPane().add(game);
+        window.addMouseListener(mouse.MouseAdapter());
         window.setVisible(true);
         window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);

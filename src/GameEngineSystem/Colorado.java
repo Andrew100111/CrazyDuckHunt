@@ -9,13 +9,14 @@ import java.util.logging.Logger;
 public class Colorado extends Enemy {
 
     public Colorado() {
-        
+
+        start();
         life = 5;
         points = 2;
         speed = speed * 0.6;
         appearance = 100;
         color = BLACK;
-        fly();
+        //fly();
 //        start();
 //        fly();
 //        try {
@@ -31,8 +32,7 @@ public class Colorado extends Enemy {
     private void start() {
         setX(random.nextInt(1000));
         setY(random.nextInt(600));
-        setLocation(getX(), getY());
-        state = true;
+        //setLocation(getX(), getY());
     }
     
 }
