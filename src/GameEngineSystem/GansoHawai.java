@@ -17,7 +17,7 @@ public class GansoHawai extends Enemy {
     
     public GansoHawai() {
         
-
+        type = "Ganso";
         color = RED;
         life = 2;
         points = 10;

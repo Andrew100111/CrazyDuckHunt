@@ -5,18 +5,24 @@
  */
 package GameEngineSystem;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.LinkedList;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Xcreed
  */
-public class Game {
+public class Game extends JPanel{
     
-    private LinkedList Enemies = new LinkedList(); //since there is 25 ducks per level
+    private final LinkedList Enemies = new LinkedList(); //since there is 25 ducks per level
     private LinkedList EnemiesOnScreen = new LinkedList();
     private int Level = 1;
     private Enemy colorado = new GansoHawai();
@@ -27,7 +33,7 @@ public class Game {
 //            System.out.println(getEnemy().get(i));
 //        }
         
-        System.out.println("Game " + colorado.rec);
+        //System.out.println("Game " + colorado.rec);
         getEnemy();
         checkAmount();
     }
@@ -83,5 +89,17 @@ public class Game {
         else {
         }
         return duck;
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {    
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for (int i = 0; i < Enemies.size(); i++) {
+            System.out.println(Enemies.get(i));
+            //g2.setColor((Enemies.get(i).getColor());
+            g2.draw(Enemies.rec);
+        }
+
     }
 }

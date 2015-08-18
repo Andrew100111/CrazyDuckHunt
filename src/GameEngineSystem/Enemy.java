@@ -3,6 +3,8 @@ package GameEngineSystem;
 
 import GameController.MouseShooter;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -12,9 +14,10 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 
-public abstract class Enemy {
+public abstract class Enemy{
     
     //si aparecen 100 patos: 
    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
@@ -28,10 +31,11 @@ public abstract class Enemy {
     private static int x; //location x
     private static int y; //location y
     public BufferedImage duck;
-    public final int height = 300;
-    public final int width = 150;
+    public final int height = 30;
+    public final int width = 25;
     public Rectangle rec = new Rectangle(x,y,height,width);
     protected Color color;
+    protected String type;
     
     public Enemy() {
         
@@ -175,5 +179,9 @@ public abstract class Enemy {
     
     public Color getColor() {
         return color;
+    }
+    
+    public String getType(){
+        return type;
     }
 }

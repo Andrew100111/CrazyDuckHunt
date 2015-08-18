@@ -15,6 +15,7 @@ public class PatoSalvaje extends Enemy{
         life = 1;
         points = 1;
         speed = speed * 0.4;
+        type = "Pato";
     }
     
     //This duck moves all over the screen

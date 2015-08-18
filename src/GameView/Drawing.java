@@ -21,19 +21,9 @@ import javax.swing.JPanel;
 public class Drawing extends JPanel{ 
     
     //Needs to be able to work for any duck
-    private Enemy enemy = new GansoHawai();
+    //private Enemy enemy = new GansoHawai();
     
-    @Override
-    protected void paintComponent(Graphics g) {
-        
-        super.paintComponent(g);
-        
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(enemy.getColor());
-        g2.draw(enemy.rec);
-
-        //super.repaint();
-    }
+    
 //    public static BufferedImage resize(BufferedImage image, int width, int height) {
 //        
 //        //editedImage -> imagen editedImage
