@@ -38,7 +38,6 @@ public abstract class Enemy{
     public Rectangle rec = new Rectangle(getX(),getY(),height,width);
     protected Color color;
     protected String type;
-    protected boolean state = false;
     
     public Enemy() {
          
