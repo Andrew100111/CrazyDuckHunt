@@ -2,6 +2,7 @@
 
 package GameEngineSystem;
 
+import static java.awt.Color.RED;
 
 
 public class GansoHawai extends Enemy {
@@ -14,7 +15,23 @@ public class GansoHawai extends Enemy {
     //int speed = 7; 
     //float appearance = 100; percentage of this duck: 10% 
     
-    public GansoHawai(int life, int points, int speed, float appearance) {
-        super(life, points, speed, appearance);
+    public GansoHawai() {
+        
+
+        color = RED;
+        life = 2;
+        points = 10;
+        speed = speed * 0.7;
+        fly();
+        System.out.println(rec);
+        
+    }
+    
+    @Override //Duck only appears at one random part of the screen
+    public void fly() {
+        setX(random.nextInt(1000));
+        setY(random.nextInt(600));
+        setLocation(getX(), getY());
+        
     }
 }
