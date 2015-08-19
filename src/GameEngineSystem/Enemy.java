@@ -19,7 +19,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 
-public abstract class Enemy{
+public abstract class Enemy implements Runnable{
     
     //si aparecen 100 patos: 
    // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
@@ -38,37 +38,46 @@ public abstract class Enemy{
     public Rectangle rec = new Rectangle(getX(),getY(),height,width);
     protected Color color;
     protected String type;
+    protected boolean state = false;
+    protected Thread run;
     
     public Enemy() {
          
+        //Trying with threads
+        run = new Thread(this);
+        //run.start();
         try {
             speed = getSpeed();
         } catch (Exception ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
+    
+    public void run() {
+        //fly();
+    }
     public void fly() { //every duck has the ability to fly
-
-        if (x == 600) {
-            setLocation(x--,y);
-        }
-        if (x == 0 || x < 600) {
-            setLocation(x++,y);
-        }
-        else if (y == 400) {
-            setLocation(x,y--);
-        }    
-        else {
-            setLocation(x,y++);
-        }
+        //if (state) {
+        setX(random.nextInt(1000));
+        setY(random.nextInt(600));
+            System.out.println("HEY MA! I'M FLYING");
+            if (x == 600) {
+                x--;
+            }
+            if (x == 0 || x < 600) {
+                x++;
+            }
+            else if (y == 400) {
+                y--;
+            }    
+            else {
+                y++;
+            }
+            //fly();//DONT KNOW IF WORKS
+//        } else { 
+//            System.out.println("Duck dead");
+//        }
         //Delay in the method to execute again
-        try {
-            Thread.sleep((int) speed); //The faster they move equals 
-                                        //the delay on this defined by speed
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-        }
     } 
     
     public void die() {
@@ -165,10 +174,6 @@ public abstract class Enemy{
     
     public void setY(int i) {
        y = i;
-    }
-    
-    public void setLocation(int x, int y) {
-        location = new Point(x, y);
     }
     
     public Color getColor() {
