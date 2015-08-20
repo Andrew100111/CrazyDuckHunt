@@ -1,9 +1,7 @@
 
 package GameController;
 
-import GameView.MainMenu;
-import java.awt.BorderLayout;
-import java.awt.MouseInfo;
+import GameEngineSystem.Enemy;
 import java.awt.Point;
 import java.awt.PointerInfo;
 import java.awt.event.MouseAdapter;
@@ -15,7 +13,8 @@ import javax.swing.JFrame;
 
 
 public class MouseShooter {
-
+    
+    private Enemy enemy;
     private static Point Mouse;
     //Gets the location of the pointer
     public void getClick() {     

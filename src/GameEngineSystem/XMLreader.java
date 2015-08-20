@@ -10,7 +10,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-
+/**
+ * Class to access the xml file for the ducks' stats
+ * @author Xcreed
+ */
 public class XMLreader {
  
     private int stat;
