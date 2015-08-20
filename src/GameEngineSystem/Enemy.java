@@ -110,6 +110,11 @@ public abstract class Enemy implements Runnable{
     
 //    public ImageIcon createDuck(String path) {
 //        duck = new ImageIcon(getImage(path));  
+//        block.setLocation(50, 50);
+//        block.revalidate();
+//        duck.setSize(width, height);
+//        System.out.println(duck.getBounds());
+
 //        //block.setLocation(50, 50);
 //        //block.revalidate();
 ////        duck.setSize(width, height);
@@ -165,6 +170,7 @@ public abstract class Enemy implements Runnable{
             return null;
         }
     }
+
     
     public int getX() {
         return x;
