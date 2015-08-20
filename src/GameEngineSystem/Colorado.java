@@ -10,7 +10,7 @@ public class Colorado extends Enemy {
 
     public Colorado() {
 
-        state = true;
+        
         life = 5;
         points = 2;
         speed = speed * 0.6;

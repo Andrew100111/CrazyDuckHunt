@@ -10,21 +10,27 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Xcreed
  */
-public class Game extends JPanel{
+public class Game extends JPanel implements Runnable{
     
     private List<Enemy> Enemies = new ArrayList<Enemy>(); //since there is 25 ducks per level
     private List<Enemy> EnemiesOnScreen = new ArrayList<Enemy>();
     private int Level = 1;
+    private Thread thread = new Thread(this);
     
     public Game() {
-
+        
         getEnemy();
+        thread.start();
+    }
+    
+    public void run() {
         enemyScreen();
     }
     
@@ -60,16 +66,16 @@ public class Game extends JPanel{
     }
     
     //IT SHOULD ADD ONE BY ONE *MISSING*
+    @SuppressWarnings("SleepWhileInLoop")
     public List enemyScreen() {
         Random random = new Random();
 
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(Game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
+        
         for (int i = 0; i < 25; i++) {
             EnemiesOnScreen.add(Enemies.get(random.nextInt(Enemies.size())));
+            EnemiesOnScreen.get(i).state = true;
+
+            //return EnemiesOnScreen;
         }
         
         return EnemiesOnScreen;

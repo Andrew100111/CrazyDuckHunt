@@ -28,7 +28,7 @@ public class MouseShooter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Mouse = e.getPoint();
-                //System.out.println("Mouse Shooter" + Mouse);
+                System.out.println("Mouse Shooter" + Mouse);
             }
         };
         return mouseAdapter;
