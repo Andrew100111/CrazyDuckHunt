@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 
-public class MainMenu extends JFrame{
+public class MainMenu extends JFrame implements Runnable {
     
     //private static Game game = new Game();
     private static MouseShooter mouse = new MouseShooter();
@@ -24,9 +24,9 @@ public class MainMenu extends JFrame{
     }
     
     public MainMenu() {
-//        newGame = new Thread(this);
-//        newGame.start();
-        run();
+        newGame = new Thread(this);
+        newGame.start();
+        //run();
     }
 
     public void run() {
