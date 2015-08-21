@@ -1,15 +1,10 @@
-
-
 package GameEngineSystem;
 
 import static java.awt.Color.RED;
 
-
 public class GansoHawai extends Enemy {
     
     public GansoHawai() {
-        
-        
         color = RED;
         life = 2;
         points = 10;
@@ -21,7 +16,5 @@ public class GansoHawai extends Enemy {
     public void fly() {
         setX(random.nextInt(1000));
         setY(random.nextInt(600));
-        
-        //die();
     }
 }

@@ -6,7 +6,6 @@ import GameEngineSystem.Game;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JPanel;
 
 //CAMBIAR NOMBRE
@@ -21,18 +20,17 @@ public class CrazyDuckHunt3 {
     public boolean GameLoop;
     public boolean AboutLoop;
     public Graphics g;
-    private static MouseShooter mouse = new MouseShooter();
+    private static final MouseShooter mouse = new MouseShooter();
     
     public CrazyDuckHunt3(){
         Controller();
     }
+    
     public void Controller(){
         running = true;
         MenuWindow = true;
-        
         MenuW = new Menu();
         AboutW = new About();
-        
         Window = new JFrame("Crazy Duck Hunt");
         Window.setSize(800, 600);
         Window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,21 +58,12 @@ public class CrazyDuckHunt3 {
                     Window.repaint();
                 }
             }
-            if (GameLoop){;
-                Window.setBackground(Color.yellow);
-                Game game = new Game();
+            if (GameLoop){
                 //JFrame window = new JFrame();
-                Window.setTitle("CDH");
-                Window.setSize(1000,600);
+                System.out.println("Playing");
+                Game game = new Game();
                 Window.addMouseListener(mouse.MouseAdapter());
                 Window.getContentPane().add(game);
-
-                Window.setVisible(true);
-                Window.setLocationRelativeTo(null);
-                Window.setDefaultCloseOperation(EXIT_ON_CLOSE);
-//                Pa = new JPanel();
-//                Pa.setBackground(Color.yellow);
-                //Window.add(Pa);
             }
             if (AboutLoop){
                 AboutW.Abouts();
@@ -88,14 +77,10 @@ public class CrazyDuckHunt3 {
                 }
             Window.setVisible(true);
             }
-            
-          
         }
-  
     }
     
     public static void main(String[] args) {
-        CrazyDuckHunt3 Game = new CrazyDuckHunt3();
+        new CrazyDuckHunt3();
     }
-    
 }
