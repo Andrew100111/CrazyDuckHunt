@@ -1,38 +1,22 @@
 
 package GameEngineSystem;
 
-import GameController.MouseShooter;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 
 public abstract class Enemy implements Runnable{
-    
-    //si aparecen 100 patos: 
-   // 82 PatosSalvados, 5 PatosColorados, 2 TarrosCanelo, 10GansoHawai, 1YPiquirrojo
 
-    protected int life = 10; //hits needed to kill it
+    protected int life; //hits needed to kill it
     protected int points; //points the player earns
     protected double speed; //speed of movement of each duck
     protected double appearance; // percentage of apprearence on the screen
     protected Random random = new Random();
-    private Point location;
     protected int x; //location x
     protected int y; //location y
-    public BufferedImage duck;
     public final int height = 30;
     public final int width = 25;
     public Rectangle rec = new Rectangle(getX(),getY(),height,width);
@@ -46,16 +30,19 @@ public abstract class Enemy implements Runnable{
         //Trying with threads
         run.start();
         try {
-            speed = getSpeed();
+            speed = getSpeed();//Gets the speed from the XML
         } catch (Exception ex) {
             Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    @Override
     public void run() {
+        //Use of threads here
         fly();
     }
     public  void fly() { //every duck has the ability to fly
+        //The method needs to run repeatly
         while (state) {
             setX(random.nextInt(1000));
             setY(random.nextInt(600));
@@ -73,26 +60,23 @@ public abstract class Enemy implements Runnable{
                 y++;
             }
             
-            try {
-                //fly();//DONT KNOW IF WORKS
-                Thread.sleep((long) speed*1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                //fly();//DONT KNOW IF WORKS
+//                Thread.sleep((long) speed*1000);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
-        
+        //The duck is no longer alive
         System.out.println("Duck dead");
-        
-        //Delay in the method to execute again
     }
     
     public void die() {
-
-                //Agregar aumentar score del player
+        //Duck is dead
         if (life == 0) {
+            state = false;
             System.out.println("DEAD");
         }
-        
         //Ducks is being shot (NO Sirve) 
         //Puntero relativo a la pantalla y no a las figuras
         else if (rec.getBounds().contains(MouseShooter.getPoint())) {
@@ -102,12 +86,13 @@ public abstract class Enemy implements Runnable{
             life--;
             System.out.println(life);
         }
-        
+        //Click wasn't in range
         else {
             System.out.println("Missed");
         }
     }
     
+    //We were working with images at the beginning
 //    public ImageIcon createDuck(String path) {
 //        duck = new ImageIcon(getImage(path));  
 //        block.setLocation(50, 50);
@@ -140,7 +125,6 @@ public abstract class Enemy implements Runnable{
 
     public double getSpeed() throws Exception {
         XMLreader xml = new XMLreader();
-        //speed = xml.main();
         return xml.main();
     }
 
@@ -157,19 +141,19 @@ public abstract class Enemy implements Runnable{
     }
     
     //Retrieves Image
-    public BufferedImage getImage(String path) {
-        File file = new File(path);
-        try {
-            duck = ImageIO.read(file); 
-            //BufferedImage image = ImageIO.read(file);
-            //return image;
-            return duck;
-        } catch (IOException ex) {
-           
-            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-    }
+//    public BufferedImage getImage(String path) {
+//        File file = new File(path);
+//        try {
+//            duck = ImageIO.read(file); 
+//            //BufferedImage image = ImageIO.read(file);
+//            //return image;
+//            return duck;
+//        } catch (IOException ex) {
+//           
+//            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+//            return null;
+//        }
+//    }
 
     
     public int getX() {

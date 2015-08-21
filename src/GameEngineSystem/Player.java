@@ -1,7 +1,6 @@
 
 package GameEngineSystem;
 
-import GameController.MouseShooter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

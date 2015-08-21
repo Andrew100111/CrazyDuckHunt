@@ -10,7 +10,6 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -19,13 +18,11 @@ import javax.swing.JPanel;
  */
 public class Game extends JPanel implements Runnable{
     
-    private List<Enemy> Enemies = new ArrayList<Enemy>(); //since there is 25 ducks per level
-    private List<Enemy> EnemiesOnScreen = new ArrayList<Enemy>();
-    private int Level = 1;
+    private List<Enemy> Enemies = new ArrayList<>(); 
+    private List<Enemy> EnemiesOnScreen = new ArrayList<>();
     private Thread thread = new Thread(this);
     
     public Game() {
-        
         getEnemy();
         thread.start();
     }
@@ -34,30 +31,23 @@ public class Game extends JPanel implements Runnable{
         enemyScreen();
     }
     
-    //25 ducks per level, will be in the array 
+    //Creates a list with different instances of ducks
     public List getEnemy() {
-        
         //Adds a new instance to the list of enemies
         for (int i = 0; i < 25; i++) {
             Enemies.add(new Colorado());
             Enemies.add(new GansoHawai());
             Enemies.add(new PatoSalvaje());
             Enemies.add(new TarroCanelo());
-            //enemyScreen(Enemies.get(i));
-           
         }
-        
-       //System.out.println(EnemiesOnScreen);
        return Enemies;
-        
     }
         
-    //make private//Checks the amount of enemies in the list
+    //Checks the amount of enemies in the list
     public void checkAmount(){
         //No more enemies = next level
         if (Enemies.isEmpty()){
             System.out.println("Congrats");
-            Level++;
         }
         //No more time and enemies left = Game Over
         if (EnemiesOnScreen.size() == 25) {
@@ -65,22 +55,17 @@ public class Game extends JPanel implements Runnable{
         }
     }
     
-    //IT SHOULD ADD ONE BY ONE *MISSING*
-    @SuppressWarnings("SleepWhileInLoop")
+    //Adds enemies to the screen **Doesn't have delay**
     public List enemyScreen() {
         Random random = new Random();
-
-        
+        //Randomly adds from Enemies
         for (int i = 0; i < 25; i++) {
             EnemiesOnScreen.add(Enemies.get(random.nextInt(Enemies.size())));
-            EnemiesOnScreen.get(i).state = true;
-
-            //return EnemiesOnScreen;
+            EnemiesOnScreen.get(i).state = true;//When the duck is added that state changes
         }
-        
         return EnemiesOnScreen;
     }
-    //ONly 2 rectangles are showing
+    
     @Override
     public void paintComponent(Graphics g) {    
         super.paintComponent(g);
