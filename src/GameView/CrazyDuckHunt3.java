@@ -72,11 +72,12 @@ public class CrazyDuckHunt3 {
                     this.AboutLoop = false;
                     this.GameLoop = false;
                     Window.getContentPane().removeAll();
-                    Window.repaint();
+//                    Window.repaint();
                 }
             Window.setVisible(true);
             }
         }
+        Window.repaint();
     }
     
     public static void main(String[] args) {

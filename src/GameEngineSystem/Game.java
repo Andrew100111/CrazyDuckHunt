@@ -18,6 +18,9 @@ import javax.swing.JPanel;
  */
 public class Game extends JPanel implements Runnable{
     
+    
+    //Relate mouseshooter
+    
     private List<Enemy> Enemies = new ArrayList<>(); 
     private List<Enemy> EnemiesOnScreen = new ArrayList<>();
     private Thread thread = new Thread(this);

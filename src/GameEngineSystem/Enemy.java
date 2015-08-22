@@ -79,9 +79,7 @@ public abstract class Enemy implements Runnable{
         }
         //Ducks is being shot (NO Sirve) 
         //Puntero relativo a la pantalla y no a las figuras
-        else if (rec.getBounds().contains(MouseShooter.getPoint())) {
-        //if ( MouseShooter.getPoint().x >= rec.getMinX() && MouseShooter.getPoint().x <= rec.getMaxX()   // check if X is within range
-            //&& ( MouseShooter.getPoint().y >= rec.getMinY() && MouseShooter.getPoint().y <= rec.getMaxY())) { // check if y is within range
+        else if (rec.getBounds().contains(MouseShooter.getPoint())){
             System.out.println("Ouch!");
             life--;
             System.out.println(life);
