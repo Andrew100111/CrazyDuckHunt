@@ -5,7 +5,6 @@ import GameEngineSystem.MouseShooter;
 import GameEngineSystem.Game;
 import java.awt.Graphics;
 import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JPanel;
 
 //CAMBIAR NOMBRE
@@ -60,20 +59,10 @@ public class CrazyDuckHunt3 {
             }
             if (GameLoop){
                 //JFrame window = new JFrame();
-//                System.out.println("Playing");
-//                Game game = new Game();
-//                Window.addMouseListener(mouse.MouseAdapter());
-//                Window.getContentPane().add(game);
+                System.out.println("Playing");
                 Game game = new Game();
-        JFrame window = new JFrame();
-        window.setTitle("CDH");
-        window.setSize(1000,600);
-        window.addMouseListener(mouse.MouseAdapter());
-        window.getContentPane().add(game);
-        
-        window.setVisible(true);
-        window.setLocationRelativeTo(null);
-        window.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                Window.addMouseListener(mouse.MouseAdapter());
+                Window.getContentPane().add(game);
             }
             if (AboutLoop){
                 AboutW.Abouts();
