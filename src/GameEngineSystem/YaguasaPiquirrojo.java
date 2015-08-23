@@ -1,5 +1,8 @@
 package GameEngineSystem;
 
+import static java.awt.Color.GREEN;
+
+
 
 public class YaguasaPiquirrojo extends Enemy {
     
@@ -10,6 +13,16 @@ public class YaguasaPiquirrojo extends Enemy {
     
     private int time = 30;   
     
+    public YaguasaPiquirrojo() {
+        
+        color = GREEN;
+        state = true;
+        life = 1;
+        points = 25;
+        speed = speed * 1.3;
+        
+        System.out.println(this.x);
+    }
     public void Time(){
         while(time>0){
             if(time != 0){

@@ -12,10 +12,9 @@ public class MouseShooter {
     private static Point Mouse;
     
     //Get the pointer location
-    public static Point getPoint() {
+    public static Point getClick() {
         return Mouse;
     }
-    
     
     //Adds the method to retrieve the click location on the window
     public MouseListener MouseAdapter() {

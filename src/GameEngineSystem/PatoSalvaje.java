@@ -13,9 +13,7 @@ public class PatoSalvaje extends Enemy{
         life = 1;
         points = 1;
         speed = speed * 0.4;
-        fly();
-        System.out.println(this.x);
-    }
+        }
     
     //This duck moves all over the screen
 //    public void fly() {

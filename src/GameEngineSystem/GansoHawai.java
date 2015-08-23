@@ -10,6 +10,7 @@ public class GansoHawai extends Enemy {
         points = 10;
         speed = speed * 0.7;
         fly();
+        
     }
     
     @Override //Duck only appears at one random part of the screen

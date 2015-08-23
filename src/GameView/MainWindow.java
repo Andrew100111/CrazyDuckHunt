@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 //CAMBIAR NOMBRE
-public class CrazyDuckHunt3 {
+public class MainWindow {
     
     public JFrame Window;
     public JPanel Pa;
@@ -21,7 +21,8 @@ public class CrazyDuckHunt3 {
     public Graphics g;
     private static final MouseShooter mouse = new MouseShooter();
     
-    public CrazyDuckHunt3(){
+    
+    public MainWindow(){
         Controller();
     }
     
@@ -81,6 +82,6 @@ public class CrazyDuckHunt3 {
     }
     
     public static void main(String[] args) {
-        new CrazyDuckHunt3();
+        new MainWindow();
     }
 }

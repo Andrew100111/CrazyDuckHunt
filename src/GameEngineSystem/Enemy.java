@@ -24,6 +24,7 @@ public abstract class Enemy implements Runnable{
     protected String type;
     protected boolean state = false;
     protected Thread run = new Thread(this);
+    protected static Player player = new Player();
     
     public Enemy() {
          
@@ -41,12 +42,13 @@ public abstract class Enemy implements Runnable{
         //Use of threads here
         fly();
     }
-    public  void fly() { //every duck has the ability to fly
+    public void fly() { //every duck has the ability to fly
         //The method needs to run repeatly
         while (state) {
+            //System.out.println("");
             setX(random.nextInt(1000));
             setY(random.nextInt(600));
-            System.out.println("HEY MA! I'M FLYING");
+            System.out.println("HEY MA! I'M FLYING" + points);
             if (x == 600) {
                 x--;
             }
@@ -59,13 +61,6 @@ public abstract class Enemy implements Runnable{
             else {
                 y++;
             }
-            
-//            try {
-//                //fly();//DONT KNOW IF WORKS
-//                Thread.sleep((long) speed*1000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-//            }
         }
         //The duck is no longer alive
         System.out.println("Duck dead");
@@ -76,10 +71,11 @@ public abstract class Enemy implements Runnable{
         if (life == 0) {
             state = false;
             System.out.println("DEAD");
+            player.addScore(points);
         }
         //Ducks is being shot (NO Sirve) 
         //Puntero relativo a la pantalla y no a las figuras
-        else if (rec.getBounds().contains(MouseShooter.getPoint())){
+        else if (rec.getBounds().contains(MouseShooter.getClick())){
             System.out.println("Ouch!");
             life--;
             System.out.println(life);
@@ -89,21 +85,6 @@ public abstract class Enemy implements Runnable{
             System.out.println("Missed");
         }
     }
-    
-    //We were working with images at the beginning
-//    public ImageIcon createDuck(String path) {
-//        duck = new ImageIcon(getImage(path));  
-//        block.setLocation(50, 50);
-//        block.revalidate();
-//        duck.setSize(width, height);
-//        System.out.println(duck.getBounds());
-
-//        //block.setLocation(50, 50);
-//        //block.revalidate();
-////        duck.setSize(width, height);
-////        System.out.println(duck.getBounds());
-//        return duck;
-//    }
 
     public int getLife() {
         return life;
@@ -137,23 +118,7 @@ public abstract class Enemy implements Runnable{
     public void setAppearance(float appearance) {
         this.appearance = appearance;
     }
-    
-    //Retrieves Image
-//    public BufferedImage getImage(String path) {
-//        File file = new File(path);
-//        try {
-//            duck = ImageIO.read(file); 
-//            //BufferedImage image = ImageIO.read(file);
-//            //return image;
-//            return duck;
-//        } catch (IOException ex) {
-//           
-//            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
-//            return null;
-//        }
-//    }
 
-    
     public int getX() {
         return x;
     }
@@ -175,3 +140,35 @@ public abstract class Enemy implements Runnable{
     }
 
 }
+
+    
+    //Retrieves Image
+//    public BufferedImage getImage(String path) {
+//        File file = new File(path);
+//        try {
+//            duck = ImageIO.read(file); 
+//            //BufferedImage image = ImageIO.read(file);
+//            //return image;
+//            return duck;
+//        } catch (IOException ex) {
+//           
+//            Logger.getLogger(Enemy.class.getName()).log(Level.SEVERE, null, ex);
+//            return null;
+//        }
+//    }
+
+    
+    //We were working with images at the beginning
+//    public ImageIcon createDuck(String path) {
+//        duck = new ImageIcon(getImage(path));  
+//        block.setLocation(50, 50);
+//        block.revalidate();
+//        duck.setSize(width, height);
+//        System.out.println(duck.getBounds());
+
+//        //block.setLocation(50, 50);
+//        //block.revalidate();
+////        duck.setSize(width, height);
+////        System.out.println(duck.getBounds());
+//        return duck;
+//    }

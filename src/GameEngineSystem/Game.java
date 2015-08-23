@@ -24,23 +24,29 @@ public class Game extends JPanel implements Runnable{
     private List<Enemy> Enemies = new ArrayList<>(); 
     private List<Enemy> EnemiesOnScreen = new ArrayList<>();
     private Thread thread = new Thread(this);
+    private Player player = Enemy.player;
     
     public Game() {
+       
+        System.out.println(player.getIP());
+        System.out.println(player.getName());
         getEnemy();
-        thread.start();
-    }
-    
-    public void run() {
+        //enemyScreen();
+        //thread.start();
         enemyScreen();
     }
     
+    public void run() {
+        
+        
+    }
     //Creates a list with different instances of ducks
     public List getEnemy() {
         //Adds a new instance to the list of enemies
         for (int i = 0; i < 25; i++) {
             Enemies.add(new Colorado());
             Enemies.add(new GansoHawai());
-            Enemies.add(new PatoSalvaje());
+            Enemies.add(new PatoSalvaje());//Only adding these ones
             Enemies.add(new TarroCanelo());
         }
        return Enemies;
@@ -63,6 +69,7 @@ public class Game extends JPanel implements Runnable{
         Random random = new Random();
         //Randomly adds from Enemies
         for (int i = 0; i < 25; i++) {
+            EnemiesOnScreen.add(Enemies.get(i));
             EnemiesOnScreen.add(Enemies.get(random.nextInt(Enemies.size())));
             EnemiesOnScreen.get(i).state = true;//When the duck is added that state changes
         }
